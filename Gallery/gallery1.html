@@ -1,0 +1,563 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../images/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/icons/favicon.ico" type="image/x-icon">
+
+    <!-- Site Properties -->
+    <title>APT Portfolio Semantic/Fomantic UI - Gallery 1</title>
+
+    <!-- Resource Files - CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">-->
+    <link rel="stylesheet" type="text/css" href="../stylescripts/basic.css">
+
+    <!-- Resource Files - JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--<script src="../semantic/dist/semantic.min.js"></script>-->
+    <script src="../stylescripts/basic.js"></script>
+
+    <!-- CSS Stylings -->
+    <style type="text/css">
+        .ui.cards > .card {
+            width: 1600px;
+        }
+
+            .ui.cards > .card > .content > .header:not(.ui) {
+                font-size: 1.1em;
+                font-weight: normal;
+            }
+
+            .ui.cards > .card .meta,
+            .ui.card .meta {
+                font-size: 0.8em;
+            }
+
+        #album_items {
+            display: none;
+        }
+
+            #album_items .ui.cards {
+                margin: 10px;
+            }
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('.ui.card .image').dimmer({ on: 'hover' });
+            $('.ui.rating').rating({ maxRating: 5 });
+            $('.ui.button').popup();
+
+
+
+            $('.button.view').on('click', (function () {
+                $('#album').fadeOut("slow", function () {
+                    $('#album_items').fadeIn("slow");
+                });
+            }));
+
+            $('.button.back').on('click', (function () {
+                $('#album_items').fadeOut("slow", function () {
+                    $('#album').fadeIn("slow");
+                });
+            }));
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Following Menu -->
+    <div class="ui large top fixed hidden menu">
+        <div class="ui container">
+            <a href="../index.html" class="item">Home</a>
+            <a href="../anet.html" class="item">ANET Examples</a>
+            <a href="../cybs.html" class="item">CYBS Examples</a>
+            <a href="../cybsdocs.html" class="item">CYBS API Docs</a>
+            <a href="../gallery.html" class="active item">Photo Gallery</a>
+            <div class="right menu">
+                <div class="item">
+                    <a href="https://developer.authorize.net" target="_blank" class="ui button">ANET Dev Center</a>
+                </div>
+                <div class="item">
+                    <a href="https://developer.cybersource.com" target="_blank" class="ui button">CYBS Dev Center</a>
+                    <!--<a class="ui primary button">CYBS Dev Center</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu">
+        <a href="../index.html" class="item">Home</a>
+        <a href="../anet.html" class="item">ANET Examples</a>
+        <a href="../cybs.html" class="item">CYBS Examples</a>
+        <a href="../cybsdocs.html" class="item">CYBS API Docs</a>
+        <a href="../gallery.html" class="active item">Photo Gallery</a>
+        <a href="https://developer.authorize.net" target="_blank" class="item">ANET Dev Center</a>
+        <a href="https://developer.cybersource.com" target="_blank" class="item">CYBS Dev Center</a>
+    </div>
+
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="toc item">
+                        <i class="sidebar icon"></i>
+                    </a>
+                    <a href="../index.html" class="item">Home</a>
+                    <a href="../anet.html" class="item">ANET Examples</a>
+                    <a href="../cybs.html" class="item">CYBS Examples</a>
+                    <a href="../cybsdocs.html" class="item">CYBS API Docs</a>
+                    <a href="../gallery.html" class="active item">Photo Gallery</a>
+                    <div class="right item">
+                        <a href="https://developer.authorize.net" target="_blank" class="ui inverted button">ANET Dev Center</a>
+                        <a href="https://developer.cybersource.com" target="_blank" class="ui inverted button">CYBS Dev Center</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header -->
+
+            <div class="ui text container">
+                <h1 class="ui inverted header">
+                    Semantic Gallery 1
+                </h1>
+            </div>
+
+        </div>
+
+        <div class="ui vertical stripe segment">
+            <div class="ui text container">
+
+                <!-- Seperation -->
+
+                <div id="album">
+                    <div class="ui piled compact segment">
+                        <div class="floating ui red label">16</div>
+                        <div class="ui card">
+                            <div class="blurring dimmable image">
+                                <div class="ui inverted dimmer">
+                                    <div class="content">
+                                        <div class="center">
+                                            <div class="ui red button view">VIEW</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="../images/gallery/drop2.jpg" alt="water drop 2">
+                            </div>
+                            <div class="content">
+                                <div id="rate" class="ui star rating right floated" data-rating="5"></div>
+                                <div class="header">Water Drop</div>
+                                <div class="meta">
+                                    <span class="date"><i class="calendar icon"></i>Created 4/1/2020</span>
+                                    <span class="right floated date"><i class="history icon"></i>Modified 4/2/2020</span>
+                                </div>
+                                <div class="description">
+                                    Water Drop Photography
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <div class="ui right labeled button" data-content="Like it!" data-variation="tiny" tabindex="0">
+                                    <div class="ui red icon tiny button">
+                                        <i class="thumbs outline up large icon"></i>
+                                    </div>
+                                    <a class="ui basic red left pointing label">
+                                        365
+                                    </a>
+                                </div>
+                                <div class="ui left labeled right floated button" data-content="Share it!" data-variation="tiny" tabindex="0">
+                                    <a class="ui basic red right pointing label">
+                                        183
+                                    </a>
+                                    <div class="ui red icon tiny button">
+                                        <i class="external share large icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ALBUM ITEMS -->
+
+                <div id="album_items">
+                    <button class="ui labeled icon button back">
+                        <i class="arrow lircle left icon"></i>
+                        Back
+                    </button>
+                    <div class="ui cards">
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop1.jpg" alt="water drop 1">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drops1.jpg</div>
+                                <div class="meta">1.38 MB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop3.jpg" alt="water drop 3">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop3.jpg</div>
+                                <div class="meta">284 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop4.jpg" alt="water drop 4">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop4.jpg</div>
+                                <div class="meta">161 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop5.jpg" alt="water drop 5">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop5.jpg</div>
+                                <div class="meta">230 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop6.jpg" alt="water drop 6">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop6.jpg</div>
+                                <div class="meta">272 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop7.jpg" alt="water drop 7">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop7.jpg</div>
+                                <div class="meta">193 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop8.jpg" alt="water drop 8">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop8.jpg</div>
+                                <div class="meta">187 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop9.jpg" alt="water drop 9">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop9.jpg</div>
+                                <div class="meta">213 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop10.jpg" alt="water drop 10">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop10.jpg</div>
+                                <div class="meta">235 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop11.jpg" alt="water drop 11">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop11.jpg</div>
+                                <div class="meta">235 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop12.jpg" alt="water drop 12">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop12.jpg</div>
+                                <div class="meta">235 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop13.jpg" alt="water drop 13">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop13.jpg</div>
+                                <div class="meta">235 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop14.jpg" alt="water drop 14">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop14.jpg</div>
+                                <div class="meta">235 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop15.jpg" alt="water drop 15">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop15.jpg</div>
+                                <div class="meta">235 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="ui labeled icon button back">
+                            <i class="arrow lircle left icon"></i>
+                            Back
+                        </button>
+
+                        <div class="card">
+                            <div class="image">
+                                <img src="../images/gallery/drop16.jpg" alt="water drop 16">
+                            </div>
+                            <div class="content">
+                                <div class="header">Drop16.jpg</div>
+                                <div class="meta">235 KB</div>
+                            </div>
+                            <div class="ui bottom attached basic buttons">
+                                <button class="ui button"><i class="pencil icon"></i></button>
+                                <button class="ui button"><i class="trash icon"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="ui inverted vertical footer segment">
+        <div class="ui container">
+            <div class="ui stackable inverted divided equal height stackable grid">
+                <div class="three wide column">
+                    <h4 class="ui inverted header">About</h4>
+                    <div class="ui inverted link list">
+                        <a href="../sitemap.html" class="item">Sitemap</a>
+                        <a href="https://www.linkedin.com/in/adam-thompson-a547468/" class="item" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">ANET Tests</h4>
+                    <div class="ui inverted link list">
+                        <a href="../ANET/anetvms.html" class="item">ANET VMS</a>
+                        <a href="../ANET/anetsimple.html" class="item">ANET Simple Checkout</a>
+                        <a href="../ANET/anetaccept.html" class="item">ANET Accept</a>
+                        <a href="../ANET/anetoauth.html" class="item">ANET OAuth</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">CYBS Tests</h4>
+                    <div class="ui inverted link list">
+                        <a href="../CYBS/anetcybsbridge.html" class="item">ANET Bridge to CYBS</a>
+                        <a href="../CYBS/cybsflexmicro.html" class="item">CYBS Flex Micro Form</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">CYBS API Doc Examples</h4>
+                    <div class="ui inverted link list">
+                        <a href="../CYBS/cybsapievolution.html" class="item">CYBS API Evolution</a>
+                        <a href="../CYBS/cybsscmpg.html" class="item">CYBS SCMP</a>
+                        <a href="../CYBS/cybssimpleorderg.html" class="item">CYBS Simple Order</a>
+                        <a href="../CYBS/cybssecureacceptg.html" class="item">CYBS Secure Acceptance</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Photo Galleries</h4>
+                    <div class="ui inverted link list">
+                        <a href="../Gallery/gallery1.html" class="item">Semantic 1</a>
+                        <a href="../Gallery/gallery2.html" class="item">Semantic 2</a>
+                        <a href="../Gallery/gallery3.html" class="item">Semantic 3</a>
+                        <a href="https://www.flickr.com/photos/adam-p-thompson/albums" class="item" target="_blank">Flickr</a>
+                        <a href="https://adthomps.myportfolio.com/projects" class="item" target="_blank">Adobe Portfolio</a>
+                        <a href="../Gallery/tableau.html" class="item">Tableau Data</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Footer Header</h4>
+                    <p>Copyright © MyCompany. All rights reserved.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

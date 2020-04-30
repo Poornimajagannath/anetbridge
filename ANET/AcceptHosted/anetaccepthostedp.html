@@ -1,0 +1,631 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../../images/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../images/icons/favicon.ico" type="image/x-icon">
+
+    <!-- Site Properties -->
+    <title>APT Portfolio Semantic/Fomantic UI - Accept Hosted - Prod</title>
+
+    <!-- Resource Files - CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">-->
+    <link rel="stylesheet" type="text/css" href="../../stylescripts/acceptcust.css">
+
+    <!-- Resource Files - JS -->
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--<script src="../../semantic/dist/semantic.min.js"></script>-->
+    <script src="../../stylescripts/basic.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+
+    <!-- JavaScript -->
+    <script type="text/javascript">
+
+        $(function () {
+
+            $("#btnOpenAuthorizeNetIFrame").click(function () {
+                $("#add_payment").show();
+                $("#embeddedToken").val($("#inputtoken").val());
+                $("#send_token").attr({ "action": "https://accept.authorize.net/payment/Payment", "target": "add_payment" }).submit();
+                $(window).scrollTop($('#add_payment').offset().top - 50);
+            });
+
+        });
+
+        $(function () {
+
+            $("#btnContinue").click(function () {
+
+                $("#redirectToken").val($("#inputtoken").val());
+
+            });
+
+        });
+
+    </script>
+    <script language="javascript" type="text/javascript">
+        // <!CDATA[
+        function XHConn() {
+            var xmlhttp, bComplete = false;
+            try { xmlhttp = new ActiveXObject("Msxml2.XMLHTTP"); }
+            catch (e) {
+                try { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); }
+                catch (e) {
+                    try { xmlhttp = new XMLHttpRequest(); }
+                    catch (e) { xmlhttp = false; }
+                }
+            }
+            if (!xmlhttp) return null;
+
+            this.connect = function (sURL, sPostData, fnDone) {
+                if (!xmlhttp) return false;
+                bComplete = false;
+
+                try {
+                    xmlhttp.open("POST", sURL, true);
+                    xmlhttp.setRequestHeader("Method", "POST " + sURL + " HTTP/1.1");
+                    xmlhttp.setRequestHeader("Content-Type", "application/" + document.getElementById("selContentType").value);
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState == 4 && !bComplete) {
+                            bComplete = true;
+                            fnDone(xmlhttp);
+                        }
+                    };
+                    xmlhttp.send(sPostData);
+                }
+                catch (z) {
+                    alert(z);
+                    return false;
+                }
+                return true;
+            };
+            return this;
+        }
+
+        var g_xc = new XHConn();
+
+        function btnSend_onclick() {
+            document.getElementById("btnSend").disabled = true;
+            document.getElementById("inputtoken").innerHTML = "";
+            document.getElementById("spnStatusCode").innerHTML = "";
+            var fnWhenDone = function (oXML) {
+                if (oXML.status && oXML.status != "200") {
+                    document.getElementById("spnStatusCode").innerHTML = "HTTP status code: " + oXML.status.toString().replace(/</g, "&lt;");
+                }
+
+                var txt = oXML.responseText;
+                var result = $(txt).find("token").text();
+                alert(result);
+                txt = txt.replace(/></g, "> <");
+                txt = txt.replace(/</g, "&lt;");
+                txt = txt.replace(/>/g, "&gt;");
+                document.getElementById("inputtoken").innerHTML = result;
+                document.getElementById("btnSend").disabled = false;
+            };
+            g_xc.connect(document.getElementById("txtUrl").value, document.getElementById("txtReqXml").value, fnWhenDone);
+        }
+
+        function selUrls_onChange(obj) {
+            if (document.getElementById("selUrls").value) {
+                document.getElementById("txtUrl").value = "https://api.authorize.net/xml/v1/" + document.getElementById("selUrls").value;
+            }
+        }
+
+        /*
+        var xmlRequestStr =
+        '&lt;?xml version="1.0" encoding="utf-8"?&gt;' + '\n' +
+        '&lt;isAliveRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"&gt;'  +'\n' +
+        '\t' + '&lt;refId&gt;refid1&lt;/refId&gt;' + '\n' +
+        '&lt;/isAliveRequest&gt;';
+
+        var jsonRequestStr =
+        '{' + '\n' +
+        ' "isAliveRequest":' + '\n' +
+        ' {' + '\n' +
+        '   "@xmlns":"AnetApi/xml/v1/schema/AnetApiSchema.xsd",' + '\n' +
+        '   "refId":"1234"' + '\n' +
+        ' }' + '\n' +
+        '}';
+        */
+
+        function selContentType_onChange(obj) {
+            if (document.getElementById("selContentType").value) {
+                document.getElementById("typeIdentifierMessageId").innerHTML = "Click here to send the request of type: " + document.getElementById("selContentType")[obj.selectedIndex].innerHTML;
+
+                if (document.getElementById("selContentType")[obj.selectedIndex].innerHTML == "JSON") {
+                    document.getElementById("txtReqXml").innerHTML = jsonRequestStr;
+                } else {
+                    document.getElementById("txtReqXml").innerHTML = xmlRequestStr;
+                }
+            }
+        }
+        // ]]>
+    </script>
+
+    <script type="text/javascript">
+        (function () {
+            if (!window.AuthorizeNetPopup) window.AuthorizeNetPopup = {};
+            if (!AuthorizeNetPopup.options) AuthorizeNetPopup.options = {
+                onPopupClosed: null
+            };
+            AuthorizeNetPopup.closePopup = function () {
+                document.getElementById("divAuthorizeNetPopupScreen").style.display = "none";
+                document.getElementById("divAuthorizeNetPopup").style.display = "none";
+                document.getElementById("iframeAuthorizeNet").src = "empty.html";
+                document.getElementById("btnOpenAuthorizeNetPopup").disabled = false;
+                if (AuthorizeNetPopup.options.onPopupClosed) AuthorizeNetPopup.options.onPopupClosed();
+            };
+
+
+
+            AuthorizeNetPopup.openPopup = function () {
+
+                var popup = document.getElementById("divAuthorizeNetPopup");
+                var popupScreen = document.getElementById("divAuthorizeNetPopupScreen");
+                var ifrm = document.getElementById("iframeAuthorizeNet");
+                var form = document.forms["formAuthorizeNetPopup"];
+                $("#popupToken").val($("#inputtoken").val());
+                form.action = "https://accept.authorize.net/payment/payment";
+                ifrm.style.width = "442px";
+                ifrm.style.height = "578px";
+
+                form.submit();
+
+                popup.style.display = "";
+                popupScreen.style.display = "";
+                centerPopup();
+                adjustPopupScreen();
+            };
+
+            AuthorizeNetPopup.onReceiveCommunication = function (querystr) {
+                var params = parseQueryString(querystr);
+                switch (params["action"]) {
+                    case "successfulSave":
+                        AuthorizeNetPopup.closePopup();
+                        break;
+                    case "cancel":
+                        AuthorizeNetPopup.closePopup();
+                        break;
+                    case "transactResponse":
+                        var response = params["response"];
+                        document.getElementById("token").value = response;
+                        AuthorizeNetPopup.closePopup();
+                        break;
+                    case "resizeWindow":
+                        var w = parseInt(params["width"]);
+                        var h = parseInt(params["height"]);
+                        var ifrm = document.getElementById("iframeAuthorizeNet");
+                        ifrm.style.width = w.toString() + "px";
+                        ifrm.style.height = h.toString() + "px";
+                        centerPopup();
+                        break;
+                }
+            };
+
+            function adjustPopupScreen() {
+                var popupScreen = document.getElementById("divAuthorizeNetPopupScreen");
+                // IE6 fix
+                if (popupScreen.currentStyle && popupScreen.currentStyle.position == "absolute") {
+                    if (popupScreen.clientHeight < document.documentElement.scrollHeight) {
+                        popupScreen.style.height = document.documentElement.scrollHeight.toString() + "px";
+                    }
+                    if (popupScreen.clientWidth < document.documentElement.scrollWidth) {
+                        popupScreen.style.width = document.documentElement.scrollWidth.toString() + "px";
+                    }
+                }
+            }
+
+            function centerPopup() {
+                var d = document.getElementById("divAuthorizeNetPopup");
+                d.style.left = "50%";
+                d.style.top = "50%";
+                var left = -Math.floor(d.clientWidth / 2);
+                var top = -Math.floor(d.clientHeight / 2);
+                d.style.marginLeft = left.toString() + "px";
+                d.style.marginTop = top.toString() + "px";
+                d.style.zIndex = "2";
+                if (d.offsetLeft < 16) {
+                    d.style.left = "16px";
+                    d.style.marginLeft = "0px";
+                }
+                if (d.offsetTop < 16) {
+                    d.style.top = "16px";
+                    d.style.marginTop = "0px";
+                }
+            }
+            function adjustPopupScreen() {
+                var popupScreen = document.getElementById("divAuthorizeNetPopupScreen");
+                // IE6 fix
+                if (popupScreen.currentStyle && popupScreen.currentStyle.position == "absolute") {
+                    if (popupScreen.clientHeight < document.documentElement.scrollHeight) {
+                        popupScreen.style.height = document.documentElement.scrollHeight.toString() + "px";
+                    }
+                    if (popupScreen.clientWidth < document.documentElement.scrollWidth) {
+                        popupScreen.style.width = document.documentElement.scrollWidth.toString() + "px";
+                    }
+                }
+            }
+            function parseQueryString(str) {
+                var vars = [];
+                var arr = str.split('&');
+                var pair;
+                for (var i = 0; i < arr.length; i++) {
+                    pair = arr[i].split('=');
+                    vars.push(pair[0]);
+                    vars[pair[0]] = unescape(pair[1]);
+                }
+                return vars;
+            }
+        }());
+    </script>
+    <script type="text/javascript">
+
+        (function () {
+            if (!window.AuthorizeNetIFrame) window.AuthorizeNetIFrame = {};
+
+            AuthorizeNetIFrame.onReceiveCommunication = function (querystr) {
+                var params = parseQueryString(querystr);
+                switch (params["action"]) {
+                    case "successfulSave":
+                        break;
+                    case "cancel":
+
+                        break;
+                    case "resizeWindow":
+                        var w = parseInt(params["width"]);
+                        var h = parseInt(params["height"]);
+                        var ifrm = document.getElementById("add_payment");
+                        ifrm.style.width = w.toString() + "px";
+                        ifrm.style.height = h.toString() + "px";
+                        break;
+                    case "transactResponse":
+                        var ifrm = document.getElementById("add_payment");
+                        ifrm.style.display = 'none';
+                }
+            };
+
+            function parseQueryString(str) {
+                var vars = [];
+                var arr = str.split('&');
+                var pair;
+                for (var i = 0; i < arr.length; i++) {
+                    pair = arr[i].split('=');
+                    vars.push(pair[0]);
+                    vars[pair[0]] = unescape(pair[1]);
+                }
+                return vars;
+            }
+        }());
+
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Following Menu -->
+    <div class="ui large top fixed hidden menu">
+        <div class="ui container">
+            <a href="../../index.html" class="item">Home</a>
+            <a href="../../anet.html" class="active item">ANET Examples</a>
+            <a href="../../cybs.html" class="item">CYBS Examples</a>
+            <a href="../../cybsdocs.html" class="item">CYBS API Docs</a>
+            <a href="../../gallery.html" class="item">Photo Galleries</a>
+            <div class="right menu">
+                <div class="item">
+                    <a href="https://developer.authorize.net" target="_blank" class="ui button">ANET Dev Center</a>
+                </div>
+                <div class="item">
+                    <a href="https://developer.cybersource.com" target="_blank" class="ui button">CYBS Dev Center</a>
+                    <!--<a class="ui primary button">CYBS Dev Center</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu">
+        <a href="../../index.html" class="item">Home</a>
+        <a href="../../anet.html" class="active item">ANET Examples</a>
+        <a href="../../cybs.html" class="item">CYBS Examples</a>
+        <a href="../../cybsdocs.html" class="item">CYBS API Docs</a>
+        <a href="../../gallery.html" class="item">Photo Galleries</a>
+        <a href="https://developer.authorize.net" target="_blank" class="item">ANET Dev Center</a>
+        <a href="https://developer.cybersource.com" target="_blank" class="item">CYBS Dev Center</a>
+    </div>
+
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="toc item">
+                        <i class="sidebar icon"></i>
+                    </a>
+                    <a href="../../index.html" class="item">Home</a>
+                    <a href="../../anet.html" class="active item">ANET Examples</a>
+                    <a href="../../cybs.html" class="item">CYBS Examples</a>
+                    <a href="../../cybsdocs.html" class="item">CYBS API Docs</a>
+                    <a href="../../gallery.html" class="item">Photo Galleries</a>
+                    <div class="right item">
+                        <a href="https://developer.authorize.net" target="_blank" class="ui inverted button">ANET Dev Center</a>
+                        <a href="https://developer.cybersource.com" target="_blank" class="ui inverted button">CYBS Dev Center</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui text container">
+                <h1 class="ui inverted header">
+                    APT API Examples
+                </h1>
+                <h2>Authorize.Net API Accept tests.</h2>
+                <!--<div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>-->
+            </div>
+
+        </div>
+
+        <!---->
+
+        <div class="ui vertical stripe segment">
+            <div class="ui text container">
+
+                <form class="ui form" method="post" action="">
+                    <div class="ui equal width form">
+                        <div class="fields">
+                            <div class="field">
+                                <label>Url:</label>
+                                <input type="text" id="txtUrl" name="txtUrl" size="55" placeholder="Endpoint" />
+                            </div>
+                            <div class="field">
+                                <label>Domain:</label>
+                                <select name="selUrls" id="selUrls" onchange="selUrls_onChange(this)" onblur="selUrls_onChange(this)">
+                                    <option value="">--Select Url--</option>
+                                    <option value="request.api">Production API</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label>XML/JSON</label>
+                                <select name="selContentType" id="selContentType" onchange="selContentType_onChange(this)">
+                                    <option value="">--Select Type--</option>
+                                    <option value="xml">XML</option>
+                                    <!--<option value="json">JSON</option>-->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="field">
+                                <label>Code:</label>
+                                    <textarea id="txtReqXml" name="txtReqXml" cols="80" rows="16" style="" placeholder="Code">
+                                    &#x3C;getHostedPaymentPageRequest xmlns=&#x22;AnetApi/xml/v1/schema/AnetApiSchema.xsd&#x22;&#x3E;
+                                    &#x3C;merchantAuthentication&#x3E;
+                                    &#x3C;name&#x3E;QOAA0OCC$aP94Nn8t528&#x3C;/name&#x3E;
+                                    &#x3C;transactionKey&#x3E;5zdZ9X9sra6e2G29&#x3C;/transactionKey&#x3E;
+                                    &#x3C;/merchantAuthentication&#x3E;
+                                    &#x3C;transactionRequest&#x3E;
+                                    &#x3C;transactionType&#x3E;authCaptureTransaction&#x3C;/transactionType&#x3E;
+                                    &#x3C;amount&#x3E;20.00&#x3C;/amount&#x3E;
+                                    &#x3C;profile&#x3E;
+                                    &#x3C;customerProfileId&#x3E;123456789&#x3C;/customerProfileId&#x3E;
+                                    &#x3C;/profile&#x3E;
+                                    &#x3C;customer&#x3E;
+                                    &#x3C;email&#x3E;ellen@mail.com&#x3C;/email&#x3E;
+                                    &#x3C;/customer&#x3E;
+                                    &#x3C;billTo&#x3E;
+                                    &#x3C;firstName&#x3E;Test First&#x3C;/firstName&#x3E;
+                                    &#x3C;lastName&#x3E;Test Last&#x3C;/lastName&#x3E;
+                                    &#x3C;company&#x3E;APT Test&#x3C;/company&#x3E;
+                                    &#x3C;address&#x3E;123 Test&#x3C;/address&#x3E;
+                                    &#x3C;city&#x3E;Bellevue&#x3C;/city&#x3E;
+                                    &#x3C;state&#x3E;WA&#x3C;/state&#x3E;
+                                    &#x3C;zip&#x3E;98004&#x3C;/zip&#x3E;
+                                    &#x3C;country&#x3E;USA&#x3C;/country&#x3E;
+                                    &#x3C;/billTo&#x3E;
+                                    &#x3C;/transactionRequest&#x3E;
+                                    &#x3C;hostedPaymentSettings&#x3E;
+                                    &#x3C;setting&#x3E;
+                                    &#x3C;settingName&#x3E;hostedPaymentReturnOptions&#x3C;/settingName&#x3E;
+                                    &#x3C;settingValue&#x3E;{&#x22;showReceipt&#x22;: true, &#x22;url&#x22;: &#x22;https://adthomps.github.io/index.html&#x22;, &#x22;urlText&#x22;: &#x22;Continue&#x22;, &#x22;cancelUrl&#x22;: &#x22;https://adthomps.github.io/ANET/anetaccept.html&#x22;, &#x22;cancelUrlText&#x22;: &#x22;Cancel&#x22;}&#x3C;/settingValue&#x3E;
+                                    &#x3C;/setting&#x3E;
+                                    &#x3C;setting&#x3E;
+                                    &#x3C;settingName&#x3E;hostedPaymentButtonOptions&#x3C;/settingName&#x3E;
+                                    &#x3C;settingValue&#x3E;{&#x22;text&#x22;: &#x22;Pay&#x22;}&#x3C;/settingValue&#x3E;
+                                    &#x3C;/setting&#x3E;
+                                    &#x3C;setting&#x3E;
+                                    &#x3C;settingName&#x3E;hostedPaymentStyleOptions&#x3C;/settingName&#x3E;
+                                    &#x3C;settingValue&#x3E;{&#x22;bgColor&#x22;: &#x22;blue&#x22;}&#x3C;/settingValue&#x3E;
+                                    &#x3C;/setting&#x3E;
+                                    &#x3C;setting&#x3E;
+                                    &#x3C;settingName&#x3E;hostedPaymentPaymentOptions&#x3C;/settingName&#x3E;
+                                    &#x3C;settingValue&#x3E;{&#x22;cardCodeRequired&#x22;: false, &#x22;showCreditCard&#x22;: true, &#x22;showBankAccount&#x22;: true}&#x3C;/settingValue&#x3E;
+                                    &#x3C;/setting&#x3E;
+                                    &#x3C;setting&#x3E;
+                                    &#x3C;settingName&#x3E;hostedPaymentSecurityOptions&#x3C;/settingName&#x3E;
+                                    &#x3C;settingValue&#x3E;{&#x22;captcha&#x22;: false}&#x3C;/settingValue&#x3E;
+                                    &#x3C;/setting&#x3E;
+                                    &#x3C;setting&#x3E;
+                                    &#x3C;settingName&#x3E;hostedPaymentShippingAddressOptions&#x3C;/settingName&#x3E;
+                                    &#x3C;settingValue&#x3E;{&#x22;show&#x22;: false, &#x22;required&#x22;: false}&#x3C;/settingValue&#x3E;
+                                    &#x3C;/setting&#x3E;
+                                    &#x3C;setting&#x3E;
+                                    &#x3C;settingName&#x3E;hostedPaymentBillingAddressOptions&#x3C;/settingName&#x3E;
+                                    &#x3C;settingValue&#x3E;{&#x22;show&#x22;: true, &#x22;required&#x22;:false}&#x3C;/settingValue&#x3E;
+                                    &#x3C;/setting&#x3E;
+                                    &#x3C;setting&#x3E;
+                                    &#x3C;settingName&#x3E;hostedPaymentCustomerOptions&#x3C;/settingName&#x3E;
+                                    &#x3C;settingValue&#x3E;{&#x22;showEmail&#x22;: false, &#x22;requiredEmail&#x22;: false, &#x22;addPaymentProfile&#x22;: false}&#x3C;/settingValue&#x3E;
+                                    &#x3C;/setting&#x3E;
+                                    &#x3C;setting&#x3E;
+                                    &#x3C;settingName&#x3E;hostedPaymentOrderOptions&#x3C;/settingName&#x3E;
+                                    &#x3C;settingValue&#x3E;{&#x22;show&#x22;: true, &#x22;merchantName&#x22;: &#x22;APT Test&#x22;}&#x3C;/settingValue&#x3E;
+                                    &#x3C;/setting&#x3E;
+                                    &#x3C;setting&#x3E;
+                                    &#x3C;settingName&#x3E;hostedPaymentIFrameCommunicatorUrl&#x3C;/settingName&#x3E;
+                                    &#x3C;settingValue&#x3E;{&#x22;url&#x22;: &#x22;https://adthomps.github.io/ANET/AcceptHosted/HostedIframeCommunicator.html&#x22;}&#x3C;/settingValue&#x3E;
+                                    &#x3C;/setting&#x3E;
+                                    &#x3C;/hostedPaymentSettings&#x3E;
+                                    &#x3C;/getHostedPaymentPageRequest&#x3E;
+                                    </textarea>
+                            </div>
+                            <div class="field">
+                            </div>
+                            <div class="field">
+                                <label>Response:</label>
+                                <div><span id="spnStatusCode" class="error"></span></div>
+                                <div>
+                                    <textarea id="inputtoken" name="txtRespXml" cols="80" rows="16"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fields">
+                            <div class="field">
+                                <input class="ui button" type="button" id="btnSend" name="btnSend" value="Send" onclick="return btnSend_onclick()" />
+                                <span style="font-size:smaller;" Id="typeIdentifierMessageId">Click here to send the request.</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+                <!---->
+                <!--Add the below div section in your page to establish Iframe communication. This is a must if you choose Popup style. This will have a close button and a frame to the payment page.you can customize the styles of this popup.-->
+                <div id="divAuthorizeNetPopup" style="display:none;" class="AuthorizeNetPopupGrayFrameTheme">
+                    <div class="AuthorizeNetPopupOuter">
+                        <div class="AuthorizeNetPopupTop">
+                            <div class="AuthorizeNetPopupClose">
+                                <a href="javascript:;" onclick="AuthorizeNetPopup.closePopup();" title="Close"> </a>
+                            </div>
+                        </div>
+                        <div class="AuthorizeNetPopupInner">
+                            <iframe name="iframeAuthorizeNet" id="iframeAuthorizeNet" src="empty.html" frameborder="0" scrolling="no"></iframe>
+                        </div>
+                        <div class="AuthorizeNetPopupBottom">
+                            <div class="AuthorizeNetPopupLogo" title="Powered by Authorize.Net"></div>
+                        </div>
+                        <div id="divAuthorizeNetPopupScreen" style="display:none;"></div>
+                    </div>
+                </div>
+
+
+                <h4 class="ui horizontal header divider">
+                    Follow On Buttons
+                </h4>
+
+                <form method="post" action="https://accept.authorize.net/payment/Payment" id="formAuthorizeNetTestPage"
+                      name="formAuthorizeNetTestPage">
+                    <button class="ui button" id="btnContinue" onclick="">Continue to next page</button>
+                    <input type="hidden" id="redirectToken" name="token" value="" />
+                    (Use Redirect to continue to Hosted Payment Page)
+                </form>
+
+                <form method="post" id="formAuthorizeNetPopup" name="formAuthorizeNetPopup" target="iframeAuthorizeNet" style="display:none;">
+                    <input type="text" id="popupToken" name="token" value="" />
+                </form>
+                <div>
+                    <button class="ui button" id="btnOpenAuthorizeNetPopup" onclick="AuthorizeNetPopup.openPopup()">Open Authorize.Net Popup</button>
+                    Continue using Popup Window
+                </div>
+
+                <br>
+
+                <div>
+                    <button class="ui button" id="btnOpenAuthorizeNetIFrame" onclick="">Embedded IFrame - Show Payment Form</button>
+                </div>
+
+                <div class="ui vertical stripe segment">
+                    <div class="ui text container">
+
+                        <h4 class="ui horizontal header divider">
+                            Embedded IFrame - Hosted Payment Page
+                        </h4>
+
+                        <div id="iframe_holder" class="center-block" style="width:90%;max-width: 1000px">
+                            <iframe id="add_payment" class="embed-responsive-item panel" name="add_payment" scrolling="no" style="height:100%;width:100%;border:none;overflow:hidden;">
+                            </iframe>
+                        </div>
+                        <form id="send_token" method="post" target="add_payment">
+                            <input type="hidden" id="embeddedToken" name="token" value="">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="ui inverted vertical footer segment">
+        <div class="ui container">
+            <div class="ui stackable inverted divided equal height stackable grid">
+                <div class="three wide column">
+                    <h4 class="ui inverted header">About</h4>
+                    <div class="ui inverted link list">
+                        <a href="../../sitemap.html" class="item">Sitemap</a>
+                        <a href="https://www.linkedin.com/in/adam-thompson-a547468/" class="item" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">ANET Tests</h4>
+                    <div class="ui inverted link list">
+                        <a href="../../ANET/anetvms.html" class="item">ANET VMS</a>
+                        <a href="../../ANET/anetsimple.html" class="item">ANET Simple Checkout</a>
+                        <a href="../../ANET/anetaccept.html" class="item">ANET Accept</a>
+                        <a href="../../ANET/anetoauth.html" class="item">ANET OAuth</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">CYBS Tests</h4>
+                    <div class="ui inverted link list">
+                        <a href="../../CYBS/anetcybsbridge.html" class="item">ANET Bridge to CYBS</a>
+                        <a href="../../CYBS/cybsflexmicro.html" class="item">CYBS Flex Micro Form</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">CYBS API Doc Examples</h4>
+                    <div class="ui inverted link list">
+                        <a href="../../CYBS/cybsapievolution.html" class="item">CYBS API Evolution</a>
+                        <a href="../../CYBS/cybsscmpg.html" class="item">CYBS SCMP</a>
+                        <a href="../../CYBS/cybssimpleorderg.html" class="item">CYBS Simple Order</a>
+                        <a href="../../CYBS/cybssecureacceptg.html" class="item">CYBS Secure Acceptance</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Photo Galleries</h4>
+                    <div class="ui inverted link list">
+                        <a href="../../Gallery/gallery1.html" class="item">Semantic 1</a>
+                        <a href="../../Gallery/gallery2.html" class="item">Semantic 2</a>
+                        <a href="../../Gallery/gallery3.html" class="item">Semantic 3</a>
+                        <a href="https://www.flickr.com/photos/adam-p-thompson/albums" class="item" target="_blank">Flickr</a>
+                        <a href="https://adthomps.myportfolio.com/projects" class="item" target="_blank">Adobe Portfolio</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Footer Header</h4>
+                    <p>Copyright © MyCompany. All rights reserved.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

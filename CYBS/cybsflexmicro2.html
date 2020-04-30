@@ -1,0 +1,32 @@
+﻿<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>APT Portfolio Semantic/Fomantic UI - CYBS Flex 2</title>
+    <script src="https://flex.cybersource.com/cybersource/assets/microform/0.11.0/flex-microform.min.js"></script>
+</head>
+<body>
+    <div id="errors-output" role="alert"></div>
+    <form action="/your/payment/complete/endpoint" method="post" id="my-form">
+        <!-- Containers in which we will load microform -->
+        <label for="number-container">Card Number</label>
+        <div id="number-container"></div>
+
+        <label for="securityCode-container">Security Code</label>
+        <div id="securityCode-container"></div>
+
+        <!-- All the other fields comprising the form post to your server -->
+
+        <label for="expirationMonth">Expiration Month</label>
+        <input id="expirationMonth" placeholder="MM" maxLength="2" />
+
+        <label for="expirationYear">Expiration Year</label>
+        <input id="expirationYear" placeholder="YYYY" maxLength="4" />
+
+        <!-- Button element to trigger tokenization  -->
+        <button>Pay</button>
+    </form>
+
+    <script src="https://flex.cybersource.com/cybersource/assets/microform/0.11/flex-microform.min.js"></script>
+    <script src="your-checkout.js"></script>
+</body>
+</html>

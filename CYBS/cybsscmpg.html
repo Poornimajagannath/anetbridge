@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../images/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/icons/favicon.ico" type="image/x-icon">
+
+    <!-- Site Properties -->
+    <title>APT Portfolio Semantic/Fomantic UI - CYBS SCMP - Guide</title>
+
+    <!-- Resource Files - CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">-->
+    <link rel="stylesheet" type="text/css" href="../stylescripts/basic.css">
+
+    <!-- Resource Files - JS -->
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--<script src="../semantic/dist/semantic.min.js"></script>-->
+    <script src="../stylescripts/basic.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!-- Following Menu -->
+    <div class="ui large top fixed hidden menu">
+        <div class="ui container">
+            <a href="../index.html" class="item">Home</a>
+            <a href="../anet.html" class="item">ANET Examples</a>
+            <a href="../cybs.html" class="item">CYBS Examples</a>
+            <a href="../cybsdocs.html" class="active item">CYBS API Docs</a>
+            <a href="../gallery.html" class="item">Photo Galleries</a>
+            <div class="right menu">
+                <div class="item">
+                    <a href="https://developer.authorize.net" target="_blank" class="ui button">ANET Dev Center</a>
+                </div>
+                <div class="item">
+                    <a href="https://developer.cybersource.com" target="_blank" class="ui button">CYBS Dev Center</a>
+                    <!--<a class="ui primary button">CYBS Dev Center</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu">
+        <a href="../index.html" class="item">Home</a>
+        <a href="../anet.html" class="item">ANET Examples</a>
+        <a href="../cybs.html" class="item">CYBS Examples</a>
+        <a href="../cybsdocs.html" class="active item">CYBS API Docs</a>
+        <a href="../gallery.html" class="item">Photo Galleries</a>
+        <a href="https://developer.authorize.net" target="_blank" class="item">ANET Dev Center</a>
+        <a href="https://developer.cybersource.com" target="_blank" class="item">CYBS Dev Center</a>
+    </div>
+
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="toc item">
+                        <i class="sidebar icon"></i>
+                    </a>
+                    <a href="../index.html" class="item">Home</a>
+                    <a href="../anet.html" class="item">ANET Examples</a>
+                    <a href="../cybs.html" class="item">CYBS Examples</a>
+                    <a href="../cybsdocs.html" class="active item">CYBS API Docs</a>
+                    <a href="../gallery.html" class="item">Photo Galleries</a>
+                    <div class="right item">
+                        <a href="https://developer.authorize.net" target="_blank" class="ui inverted button">ANET Dev Center</a>
+                        <a href="https://developer.cybersource.com" target="_blank" class="ui inverted button">CYBS Dev Center</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui text container">
+                <h1 class="ui inverted header">
+                    APT API Examples
+                </h1>
+                <h2>Legacy CYBS API</h2>
+                <!--<div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>-->
+            </div>
+
+        </div>
+
+        <div class="ui vertical stripe segment">
+            <div class="ui text container">
+
+                <!---->
+
+                <div class="ui text container">
+                    <h3 class="ui header">SCMP (Simple Commerce Message Protocol)</h3>
+
+                    <div class="intro">
+
+                        <p>SCMP (Simple Commerce Message Protocol) is a legacy name-value pair API that is supported only for existing merchants who have already implemented it. These resources are for merchants who want to download the latest SCMP API client version for their existing implementations.</p>
+
+                        <p><b>Secure Acceptance Checkout API</b> option is ideal for Web merchants who prefer to host their own order page, perhaps for greater customization, and simply need a method of transferring payment data for processing.</p>
+
+                        <p><b>Status:</b> Deprecated</p>
+
+                        <p><b>Alternative Solution:</b> <a href="https://developer.cybersource.com/api/developer-guides.html">Rest API</a></p>
+
+                    </div>
+                </div>
+
+                <h3 class="subtitle">Implementation Guides & Source Code</h3>
+                <div>
+                    <p>Documentation: <a href="http://apps.cybersource.com/library/documentation/dev_guides/SCMP_API_Clients/html/">HTML</a> | <a href="http://apps.cybersource.com/library/documentation/dev_guides/SCMP_API_Clients/Client_SDK_SCMP_API.pdf">PDF</a></p>
+
+                </div>
+                <div class="grouplc">
+                    <ul class="disc">
+                        <li>Java</li>
+                        <ul>
+                            <li>Source Code: <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/_SCMP_Clients/Java/Java_1_2_to_1_4/sdkjava--ics5.3.0.zip">Java SCMP Clients v.ics5.3.0</a></li>
+                            <li>Other Documents:</li>
+                            <ul>
+                                <li><a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/_SCMP_Clients/Java/Java_1_2_to_1_4/readme">ReadMe for Java</a></li>
+                                <li><a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/_SCMP_Clients/Java/Java_1_2_to_1_4/changes">Changes History for Java</a></li>
+                            </ul>
+                        </ul>
+                        <li>C/C++</li>
+                        <ul>
+                            <li>Source Code:</li>
+                            <ul>
+                                <li><a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/_SCMP_Clients/C/Linux/sdkc-linux-ics5.1.1.tar.gz">Linux - C SCMP Clients v.ics5.1.1</a></li>
+                                <li><a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/_SCMP_Clients/C/Solaris/sdkc-sol26-ics5.0.0.tar.gz">Solaris - C SCMP Clients v.ics5.0.0</a></li>
+                                <li><a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/_SCMP_Clients/C/Windows/sdkc-nt-ics5.1.1.zip">Windows - C SCMP NT Clients v.ics5.1.1</a></li>
+                            </ul>
+                            <li>Other Documents:</li>
+                            <ul>
+                                <li><a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/_SCMP_Clients/C/Solaris/readme">ReadMe for C</a></li>
+                                <li><a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/_SCMP_Clients/C/Solaris/changes">Changes History for C</a></li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </div>
+
+                <!---->
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="ui inverted vertical footer segment">
+            <div class="ui container">
+                <div class="ui stackable inverted divided equal height stackable grid">
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">About</h4>
+                        <div class="ui inverted link list">
+                            <a href="../sitemap.html" class="item">Sitemap</a>
+                            <a href="https://www.linkedin.com/in/adam-thompson-a547468/" class="item" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">ANET Tests</h4>
+                        <div class="ui inverted link list">
+                            <a href="../ANET/anetvms.html" class="item">ANET VMS</a>
+                            <a href="../ANET/anetsimple.html" class="item">ANET Simple Checkout</a>
+                            <a href="../ANET/anetaccept.html" class="item">ANET Accept</a>
+                            <a href="../ANET/anetoauth.html" class="item">ANET OAuth</a>
+                        </div>
+                    </div>
+
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">CYBS Tests</h4>
+                        <div class="ui inverted link list">
+                            <a href="../CYBS/anetcybsbridge.html" class="item">ANET Bridge to CYBS</a>
+                            <a href="../CYBS/cybsflexmicro.html" class="item">CYBS Flex Micro Form</a>
+                        </div>
+                    </div>
+
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">CYBS API Doc Examples</h4>
+                        <div class="ui inverted link list">
+                            <a href="../CYBS/cybsapievolution.html" class="item">CYBS API Evolution</a>
+                            <a href="../CYBS/cybsscmpg.html" class="item">CYBS SCMP</a>
+                            <a href="../CYBS/cybssimpleorderg.html" class="item">CYBS Simple Order</a>
+                            <a href="../CYBS/cybssecureacceptg.html" class="item">CYBS Secure Acceptance</a>
+                        </div>
+                    </div>
+
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">Photo Galleries</h4>
+                        <div class="ui inverted link list">
+                            <a href="../Gallery/gallery1.html" class="item">Semantic 1</a>
+                            <a href="../Gallery/gallery2.html" class="item">Semantic 2</a>
+                            <a href="../Gallery/gallery3.html" class="item">Semantic 3</a>
+                            <a href="https://www.flickr.com/photos/adam-p-thompson/albums" class="item" target="_blank">Flickr</a>
+                            <a href="https://adthomps.myportfolio.com/projects" class="item" target="_blank">Adobe Portfolio</a>
+                        </div>
+                    </div>
+
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">Footer Header</h4>
+                        <p>Copyright © MyCompany. All rights reserved.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+.hidden.menu {
+    display: none;
+}
+
+.masthead.segment {
+    /* min-height: 700px; */
+    min-height: 350px;
+    padding: 1em 0em;
+}
+
+.masthead .logo.item img {
+    margin-right: 1em;
+}
+
+.masthead .ui.menu .ui.button {
+    margin-left: 0.5em;
+}
+
+.masthead h1.ui.header {
+    /* margin-top: 3em; */
+    margin-top: 1em;
+    margin-bottom: 0em;
+    font-size: 4em;
+    font-weight: normal;
+}
+
+.masthead h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+}
+
+.ui.vertical.stripe {
+    /* padding: 8em 0em; */
+    padding: 4em 0em;
+}
+
+    .ui.vertical.stripe h3 {
+        font-size: 2em;
+    }
+
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+        margin-top: 3em;
+    }
+
+    .ui.vertical.stripe .floated.image {
+        clear: both;
+    }
+
+    .ui.vertical.stripe p {
+        font-size: 1.33em;
+    }
+
+    .ui.vertical.stripe .horizontal.divider {
+        margin: 3em 0em;
+    }
+
+.quote.stripe.segment {
+    padding: 0em;
+}
+
+    .quote.stripe.segment .grid .column {
+        padding-top: 5em;
+        padding-bottom: 5em;
+    }
+
+.footer.segment {
+    padding: 5em 0em;
+}
+
+.secondary.pointing.menu .toc.item {
+    display: none;
+}
+
+.AuthorizeNetShadow {
+    height: 16px;
+    width: 16px;
+    position: absolute;
+}
+
+.AuthorizeNetShadowT {
+    top: -16px;
+    left: 0px;
+    background-image: url('content/shadow1-top.png');
+    background-repeat: repeat-x;
+    width: 100%;
+}
+
+.AuthorizeNetShadowR {
+    top: 0px;
+    right: -16px;
+    background-image: url('content/shadow1-right.png');
+    background-repeat: repeat-y;
+    height: 100%;
+}
+
+.AuthorizeNetShadowB {
+    bottom: -16px;
+    left: 0px;
+    background-image: url('content/shadow1-bottom.png');
+    background-repeat: repeat-x;
+    width: 100%;
+}
+
+.AuthorizeNetShadowL {
+    top: 0px;
+    left: -16px;
+    background-image: url('content/shadow1-left.png');
+    background-repeat: repeat-y;
+    height: 100%;
+}
+
+.AuthorizeNetShadowTR {
+    top: -16px;
+    right: -16px;
+    background-image: url('content/shadow1-topRight.png');
+    background-repeat: no-repeat;
+}
+
+.AuthorizeNetShadowBR {
+    bottom: -16px;
+    right: -16px;
+    background-image: url('content/shadow1-bottomRight.png');
+    background-repeat: no-repeat;
+}
+
+.AuthorizeNetShadowBL {
+    bottom: -16px;
+    left: -16px;
+    background-image: url('content/shadow1-bottomLeft.png');
+    background-repeat: no-repeat;
+}
+
+.AuthorizeNetShadowTL {
+    top: -16px;
+    left: -16px;
+    background-image: url('content/shadow1-topLeft.png');
+    background-repeat: no-repeat;
+}
+
+#divAuthorizeNetPopupScreen {
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #808080;
+    opacity: 0.5;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)';
+    filter: alpha(opacity=50);
+}
+
+#divAuthorizeNetPopup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+    z-index: 2;
+    overflow: visible;
+}
+
+.AuthorizeNetPopupGrayFrameTheme .AuthorizeNetPopupOuter {
+    background-color: #dddddd;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #a0a0a0 #909090 #909090 #a0a0a0;
+    padding: 4px;
+}
+
+.AuthorizeNetPopupGrayFrameTheme .AuthorizeNetPopupTop {
+    height: 23px;
+}
+
+.AuthorizeNetPopupGrayFrameTheme .AuthorizeNetPopupClose {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+}
+
+    .AuthorizeNetPopupGrayFrameTheme .AuthorizeNetPopupClose a {
+        background-image: url('../images/icons/closeButton1.png');
+        background-repeat: no-repeat;
+        height: 16px;
+        width: 16px;
+        display: inline-block;
+    }
+
+        .AuthorizeNetPopupGrayFrameTheme .AuthorizeNetPopupClose a:hover {
+            background-image: url('../images/icons/closeButton1h.png');
+        }
+
+        .AuthorizeNetPopupGrayFrameTheme .AuthorizeNetPopupClose a:active {
+            background-image: url('../images/icons/closeButton1a.png');
+        }
+
+.AuthorizeNetPopupGrayFrameTheme .AuthorizeNetPopupInner {
+    background-color: #ffffff;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #cfcfcf #ebebeb #ebebeb #cfcfcf;
+}
+
+.AuthorizeNetPopupGrayFrameTheme .AuthorizeNetPopupBottom {
+    height: 30px;
+}
+
+.AuthorizeNetPopupGrayFrameTheme .AuthorizeNetPopupLogo {
+    position: absolute;
+    right: 9px;
+    bottom: 4px;
+    width: 200px;
+    height: 25px;
+    background-image: url('../images/icons/powered_simple.png');
+}
+
+.AuthorizeNetPopupSimpleTheme .AuthorizeNetPopupOuter {
+    border: 1px solid #585858;
+    background-color: #ffffff;
+}
+
+@media only screen and (max-width: 700px) {
+    .ui.fixed.menu {
+        display: none !important;
+    }
+
+    .secondary.pointing.menu .item,
+    .secondary.pointing.menu .menu {
+        display: none;
+    }
+
+    .secondary.pointing.menu .toc.item {
+        display: block;
+    }
+
+    .masthead.segment {
+        min-height: 350px;
+    }
+
+    .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+    }
+
+    .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+    }
+}

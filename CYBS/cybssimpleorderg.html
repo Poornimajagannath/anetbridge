@@ -1,0 +1,453 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../images/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/icons/favicon.ico" type="image/x-icon">
+
+    <!-- Site Properties -->
+    <title>APT Portfolio Semantic/Fomantic UI - CYBS Simple Order - Guide</title>
+
+    <!-- Resource Files - CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">-->
+    <link rel="stylesheet" type="text/css" href="../stylescripts/basic.css">
+
+    <!-- Resource Files - JS -->
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--<script src="../semantic/dist/semantic.min.js"></script>-->
+    <script src="../stylescripts/basic.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!-- Following Menu -->
+    <div class="ui large top fixed hidden menu">
+        <div class="ui container">
+            <a href="../index.html" class="item">Home</a>
+            <a href="../anet.html" class="item">ANET Examples</a>
+            <a href="../cybs.html" class="item">CYBS Examples</a>
+            <a href="../cybsdocs.html" class="active item">CYBS API Docs</a>
+            <a href="../gallery.html" class="item">Photo Galleries</a>
+            <div class="right menu">
+                <div class="item">
+                    <a href="https://developer.authorize.net" target="_blank" class="ui button">ANET Dev Center</a>
+                </div>
+                <div class="item">
+                    <a href="https://developer.cybersource.com" target="_blank" class="ui button">CYBS Dev Center</a>
+                    <!--<a class="ui primary button">CYBS Dev Center</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu">
+        <a href="../index.html" class="item">Home</a>
+        <a href="../anet.html" class="item">ANET Examples</a>
+        <a href="../cybs.html" class="item">CYBS Examples</a>
+        <a href="../cybsdocs.html" class="active item">CYBS API Docs</a>
+        <a href="../gallery.html" class="item">Photo Galleries</a>
+        <a href="https://developer.authorize.net" target="_blank" class="item">ANET Dev Center</a>
+        <a href="https://developer.cybersource.com" target="_blank" class="item">CYBS Dev Center</a>
+    </div>
+
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="toc item">
+                        <i class="sidebar icon"></i>
+                    </a>
+                    <a href="../index.html" class="item">Home</a>
+                    <a href="../anet.html" class="item">ANET Examples</a>
+                    <a href="../cybs.html" class="item">CYBS Examples</a>
+                    <a href="../cybsdocs.html" class="active item">CYBS API Docs</a>
+                    <a href="../gallery.html" class="item">Photo Galleries</a>
+                    <div class="right item">
+                        <a href="https://developer.authorize.net" target="_blank" class="ui inverted button">ANET Dev Center</a>
+                        <a href="https://developer.cybersource.com" target="_blank" class="ui inverted button">CYBS Dev Center</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui text container">
+                <h1 class="ui inverted header">
+                    APT API Examples
+                </h1>
+                <h2>Legacy CYBS API</h2>
+                <!--<div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>-->
+            </div>
+
+        </div>
+
+        <div class="ui vertical stripe segment">
+            <div class="ui text container">
+
+                <!---->
+
+                <div class="ui text container">
+                    <h3 class="ui header">Simple Order API & SOAP API Toolkit</h3>
+
+                    <div class="intro">
+
+                        <p>
+                            CyberSource APIs provide access to every service CyberSource offers. With Simple Order API, CyberSource
+                            provides the client software. It's the right choice for merchants who want scalability, a full range of
+                            services, and greater control of the buying experience.
+                        </p>
+
+                        <p>
+                            The Simple Order API and the SOAP Toolkit API use the same API calls. All developer documentation for the
+                            Simple Order API is also relevant for the SOAP Toolkit API.
+                        </p>
+
+                        <p> <b>Status:</b> Supported <i class="icon checkmark"></i></p>
+
+                        <p>
+                            <b>Alternative Solution:</b> <a href="https://developer.cybersource.com/api/developer-guides.html">
+                                Rest
+                                API
+                            </a>
+                        </p>
+
+                        <h2 class="subtitle" style="margin-top: 0px;">
+                            Who is a good candidate to use the Simple Order API & SOAP API
+                            Toolkit?
+                        </h2>
+
+                        <div class="grouplc">
+                            <p>Businesses who:</p>
+                            <ul class="disc">
+                                <li>Want to access services only available via an API implementation</li>
+                                <li>Have enough volume to warrant a higher level of automation</li>
+                                <li>Want more control and customization of the buying experience</li>
+                                <li>Have an SSL secured order page</li>
+                                <li>Have a resource with ASP, C, Java/Cold Fusion, .NET, Perl or PHP <br> programming skills</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="subtitle">The Simple Order API & SOAP API Toolkit is probably not right for you if...</h2>
+
+                        <div class="grouplc">
+                            <ul class="disc">
+                                <li>You already have a Shopping Cart to process payments</li>
+                                <li>You don't have a technical resource with programming skills</li>
+                                <li>
+                                    You or your hosting provider don't provide a secure (SSL) protected order <br> form
+                                </li>
+                                <li>
+                                    You are or will be using our basic Essentials product offering; APIs are <br> only available with
+                                    Essentials Plus and Advanced product offering <br> packages
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="GroupLinkComponent section">
+
+                        <h2 class="subtitle">What are the main advantages of using the Simple Order API & SOAP API Toolkit?</h2>
+
+                        <div class="grouplc">
+                            <ul class="disc">
+                                <li>
+                                    Flexibility—with an API, you can take advantage of any CyberSource <br> service available with the package
+                                    you purchase (Tax and line item detail, <br> for example)
+                                </li>
+                                <li>
+                                    Scalability—an API implementation is best if your business volume <br> warrants a high level of order
+                                    processing automation
+                                </li>
+                                <li>
+                                    Control and Customization—create your own customized order page and <br> receipt to give you more control
+                                    over your customer's buying experience
+                                </li>
+                                <li>
+                                    Stability—have your server communicate directly to ours for greater <br> stability than with a Web browser
+                                </li>
+                                <li>Security Control—you or your hosting provider control security with an SSL <br> secure server</li>
+                                <li>
+                                    Data Access—store order or customer data before sending it to <br> CyberSource
+                                </li>
+                                <li>Fulfillment—share order data with a fulfillment house or internal dept</li>
+                                <li>
+                                    Easy Order Management—use the online Business Center to review and <br> manage all of your orders from any
+                                    computer with Internet access
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="GroupLinkComponent section">
+
+                        <h2 class="subtitle">What technical skills are required?</h2>
+
+                        <div class="grouplc">
+                            <p>
+                                Implementing an API client with a CyberSource SDK requires programming <br> skills in ASP/COM, C, Java/Cold
+                                Fusion, .NET, Perl or PHP. You should be <br> comfortable installing libraries into your existing server
+                                environment.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="GroupLinkComponent section">
+
+                        <h2 class="subtitle">How it Works?</h2>
+
+                        <div class="grouplc">
+                            <ul class="disc">
+                                <li>
+                                    <b>Step 1 - </b>The Simple Order API is a fully-­featured CyberSource API software developer kit (SDK).
+                                    You, or a hosting provider, hosts your secure, customized order form page. When a customer enters an order
+                                    on your website and clicks 'Submit', your system creates an API request. This request contains a digital
+                                    signature, the order data, and formatting information wrapped in an envelope that defines content rules and
+                                    format.
+                                </li>
+                                <br>
+                                <li>
+                                    <b>Step 2 - </b>After your API request has been transferred to CyberSource, your payment processor is
+                                    contacted for an initial approval and a reply is received in real time.
+                                </li>
+                                <br>
+                                <li>
+                                    <b>Step 3 - </b>This reply data is then sent back to you, confirming (or denying) the order. <br><br> When
+                                    using Simple Order API, orders can be viewed in the Business Center, a central location for managing your
+                                    online payment transactions. You may request that approved transactions be submitted for funding or send
+                                    your submission requests as you ship merchandise. <br><br> This SDK includes the latest version of the API
+                                    client and code samples needed to install and set up the client. CyberSource updates the server-­side API
+                                    regularly to introduce new or enhanced functionality, assigning a version number to each update.
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <h2 class="subtitle">Implementation Guides & Source Code</h2>
+                <div>
+                    <p>
+                        Simple Order API: <a href="http://apps.cybersource.com/library/documentation/dev_guides/Simple_Order_API_Clients/html/">HTML</a> | <a href="http://apps.cybersource.com/library/documentation/dev_guides/Simple_Order_API_Clients/Client_SDK_SO_API.pdf">PDF</a>
+                    </p>
+
+                    <p>
+                        SOAP Toolkits for Web Services Developer's Guide: <a href="http://apps.cybersource.com/library/documentation/dev_guides/SOAP_Toolkits/html/">HTML</a> | <a href="http://apps.cybersource.com/library/documentation/dev_guides/SOAP_Toolkits/SOAP_toolkits.pdf">PDF</a>
+                    </p>
+
+                    <p>
+                        Creating and Using Security Keys: <a href="https://apps.cybersource.com/library/documentation/dev_guides/security_keys/html">HTML</a> | <a href="https://apps.cybersource.com/library/documentation/dev_guides/security_keys/creating_and_using_security_keys.pdf">PDF</a>
+                    </p>
+
+                    <p>
+                        Mass Key Generation: <a href="https://apps.cybersource.com/library/documentation/dev_guides/mass_key_generation_sdk/html/">HTML</a> | <a href="https://apps.cybersource.com/library/documentation/dev_guides/mass_key_generation_sdk/MassKeyAPI.pdf">PDF</a>
+                        | <a href="http://apps.cybersource.com/library/documentation/dev_guides/mass_key_generation_sdk/MassKeyGeneration.zip">
+                            SDK
+                        </a>
+                    </p>
+
+                </div>
+                <div class="grouplc">
+                    <ul class="disc">
+                        <li>ASP</li>
+                        <ul>
+                            <li>
+                                Source Code: <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/ASP/All_Platforms/simapi-asp-5.0.0.msi">
+                                    ASP
+                                    v.5.0.0
+                                </a>
+                            </li>
+                            <li>Other Documents:</li>
+                            <ul>
+                                <li>
+                                    <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/ASP/All_Platforms/readme">
+                                        ReadMe
+                                        for ASP
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/ASP/All_Platforms/changes">
+                                        Changes
+                                        History for All Platforms ASP
+                                    </a>
+                                </li>
+                            </ul>
+                        </ul>
+                        <li>C/C++</li>
+                        <ul>
+                            <li>Source Code: <a href="https://github.com/CyberSource/cybersource-sdk-cplusplus">Github</a></li>
+                            <li>Other Documents:</li>
+                            <ul>
+                                <li>
+                                    <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/C/Linux/readme">
+                                        ReadMe
+                                        for Linux
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/C/Linux/changes">
+                                        Changes
+                                        History for Linux
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/C/Windows/readme">
+                                        ReadMe
+                                        for Windows
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/C/Windows/changes">
+                                        Changes
+                                        History for Windows
+                                    </a>
+                                </li>
+                            </ul>
+                        </ul>
+                        <li>Java</li>
+                        <ul>
+                            <li>
+                                Source Code: <a href="https://github.com/CyberSource/cybersource-sdk-java">All Platforms ASP v.5.0.0</a>
+                            </li>
+                        </ul>
+                        <li>.Net</li>
+                        <ul>
+                            <li>Source Code: <a href="https://github.com/CyberSource/cybersource-sdk-dotnet">Github</a></li>
+                        </ul>
+                        <li>Perl</li>
+                        <ul>
+                            <li>Source Code:</li>
+                            <ul>
+                                <li>
+                                    <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/Perl/Linux/simapi-perl-linux-5.1.0.tar.gz">Linux</a>
+                                </li>
+                                <li>
+                                    <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/Perl/Windows/simapi-perl-win32-5.0.0.zip">Windows</a>
+                                </li>
+                            </ul>
+                            <li>Other Documents:</li>
+                            <ul>
+                                <li>
+                                    <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/Perl/Linux/readme">
+                                        ReadMe
+                                        for Linux
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/Perl/Linux/changes">
+                                        Changes
+                                        History for Linux
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/Perl/Windows/readme">
+                                        ReadMe
+                                        for Windows
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://apps.cybersource.com/library/downloads/cybersource_developer_kits/Perl/Windows/changes">
+                                        Changes
+                                        History for Windows
+                                    </a>
+                                </li>
+                            </ul>
+                        </ul>
+                        <li>PHP</li>
+                        <ul>
+                            <li>Source Code: <a href="https://github.com/CyberSource/cybersource-sdk-php">Github</a></li>
+                        </ul>
+                    </ul>
+
+                    <p>
+                        <span><b>Tip:</b> Software Development Kits contain API Client software, code samples, and release notes.</span>
+                    </p>
+                    <p>
+                        <b>Important:</b> APIs are not available with our Essentials product. It is available with Essentials Plus or
+                        Advanced packages.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->
+<div class="ui inverted vertical footer segment">
+    <div class="ui container">
+        <div class="ui stackable inverted divided equal height stackable grid">
+            <div class="three wide column">
+                <h4 class="ui inverted header">About</h4>
+                <div class="ui inverted link list">
+                    <a href="../sitemap.html" class="item">Sitemap</a>
+                    <a href="https://www.linkedin.com/in/adam-thompson-a547468/" class="item" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui inverted header">ANET Tests</h4>
+                <div class="ui inverted link list">
+                    <a href="../ANET/anetvms.html" class="item">ANET VMS</a>
+                    <a href="../ANET/anetsimple.html" class="item">ANET Simple Checkout</a>
+                    <a href="../ANET/anetaccept.html" class="item">ANET Accept</a>
+                    <a href="../ANET/anetoauth.html" class="item">ANET OAuth</a>
+                </div>
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui inverted header">CYBS Tests</h4>
+                <div class="ui inverted link list">
+                    <a href="../CYBS/anetcybsbridge.html" class="item">ANET Bridge to CYBS</a>
+                    <a href="../CYBS/cybsflexmicro.html" class="item">CYBS Flex Micro Form</a>
+                </div>
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui inverted header">CYBS API Doc Examples</h4>
+                <div class="ui inverted link list">
+                    <a href="../CYBS/cybsapievolution.html" class="item">CYBS API Evolution</a>
+                    <a href="../CYBS/cybsscmpg.html" class="item">CYBS SCMP</a>
+                    <a href="../CYBS/cybssimpleorderg.html" class="item">CYBS Simple Order</a>
+                    <a href="../CYBS/cybssecureacceptg.html" class="item">CYBS Secure Acceptance</a>
+                </div>
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui inverted header">Photo Galleries</h4>
+                <div class="ui inverted link list">
+                    <a href="../Gallery/gallery1.html" class="item">Semantic 1</a>
+                    <a href="../Gallery/gallery2.html" class="item">Semantic 2</a>
+                    <a href="../Gallery/gallery3.html" class="item">Semantic 3</a>
+                    <a href="https://www.flickr.com/photos/adam-p-thompson/albums" class="item" target="_blank">Flickr</a>
+                    <a href="https://adthomps.myportfolio.com/projects" class="item" target="_blank">Adobe Portfolio</a>
+                </div>
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui inverted header">Footer Header</h4>
+                <p>Copyright © MyCompany. All rights reserved.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

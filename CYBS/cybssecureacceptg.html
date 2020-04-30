@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../images/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/icons/favicon.ico" type="image/x-icon">
+
+    <!-- Site Properties -->
+    <title>APT Portfolio Semantic/Fomantic UI - CYBS Secure Acceptance - Guide</title>
+
+    <!-- Resource Files - CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">-->
+    <link rel="stylesheet" type="text/css" href="../stylescripts/basic.css">
+
+    <!-- Resource Files - JS -->
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--<script src="../semantic/dist/semantic.min.js"></script>-->
+    <script src="../stylescripts/basic.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!-- Following Menu -->
+    <div class="ui large top fixed hidden menu">
+        <div class="ui container">
+            <a href="../index.html" class="item">Home</a>
+            <a href="../anet.html" class="item">ANET Examples</a>
+            <a href="../cybs.html" class="item">CYBS Examples</a>
+            <a href="../cybsdocs.html" class="active item">CYBS API Docs</a>
+            <a href="../gallery.html" class="item">Photo Galleries</a>
+            <div class="right menu">
+                <div class="item">
+                    <a href="https://developer.authorize.net" target="_blank" class="ui button">ANET Dev Center</a>
+                </div>
+                <div class="item">
+                    <a href="https://developer.cybersource.com" target="_blank" class="ui button">CYBS Dev Center</a>
+                    <!--<a class="ui primary button">CYBS Dev Center</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu">
+        <a href="../index.html" class="item">Home</a>
+        <a href="../anet.html" class="item">ANET Examples</a>
+        <a href="../cybs.html" class="item">CYBS Examples</a>
+        <a href="../cybsdocs.html" class="active item">CYBS API Docs</a>
+        <a href="../gallery.html" class="item">Photo Galleries</a>
+        <a href="https://developer.authorize.net" target="_blank" class="item">ANET Dev Center</a>
+        <a href="https://developer.cybersource.com" target="_blank" class="item">CYBS Dev Center</a>
+    </div>
+
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="toc item">
+                        <i class="sidebar icon"></i>
+                    </a>
+                    <a href="../index.html" class="item">Home</a>
+                    <a href="../anet.html" class="item">ANET Examples</a>
+                    <a href="../cybs.html" class="item">CYBS Examples</a>
+                    <a href="../cybsdocs.html" class="active item">CYBS API Docs</a>
+                    <a href="../gallery.html" class="item">Photo Galleries</a>
+                    <div class="right item">
+                        <a href="https://developer.authorize.net" target="_blank" class="ui inverted button">ANET Dev Center</a>
+                        <a href="https://developer.cybersource.com" target="_blank" class="ui inverted button">CYBS Dev Center</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui text container">
+                <h1 class="ui inverted header">
+                    APT API Examples
+                </h1>
+                <h2>Legacy CYBS API</h2>
+                <!--<div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>-->
+            </div>
+
+        </div>
+
+        <div class="ui vertical stripe segment">
+            <div class="ui text container">
+
+                <!---->
+
+                <div class="ui text container">
+                    <h3 class="ui header">Secure Acceptance</h3>
+
+                    <div class="intro">
+
+                        <p>There are two versions of Secure Acceptance.</p>
+
+                        <ul class="disc">
+                            <li>Secure Acceptance Hosted Checkout replaces the CyberSource Web/Mobile.</li>
+                            <li>Secure Acceptance Checkout API replaces the CyberSource Silent Order POST.</li>
+                        </ul>
+
+                        <p><b>Secure Acceptance Hosted Checkout</b> lets you accept payments made using a web browser either from a computer or mobile device and packs in additional features to improve the checkout experience while also minimizing the burden on IT staff.</p>
+
+                        <p><b>Secure Acceptance Checkout API</b> option is ideal for Web merchants who prefer to host their own order page, perhaps for greater customization, and simply need a method of transferring payment data for processing.</p>
+
+                        <p><b>Status:</b> Supported</p>
+
+                        <p><b>Alternative Solution:</b> <a href="https://developer.cybersource.com/api/developer-guides.html">Rest API</a></p>
+
+                    </div>
+
+                    <h2 class="subtitle" style="margin-top: 0px;">Who is a good candidate to use Secure Acceptance Hosted Checkout?</h2>
+
+                    <div class="grouplc">
+                        <p>Businesses who:</p>
+                        <ul class="disc">
+                            <li>Don't want the risk of handling or storing sensitive payment data on their own servers</li>
+                            <li>Want to achieve and maintain payment security (PCI) certification faster and easier</li>
+                            <li>Value the ability to add/drop payment types and make other changes to the checkout pages without code change</li>
+                            <li>Require mobile optimized checkout screens</li>
+                            <li>Require checkout pages in different languages</li>
+                            <li>Have a resource familiar with basic Perl, PHP, JSP, ASP.NET or Ruby scripting and host their own server, or use a hosting provider that supports these scripting languages</li>
+                            <li>Want to accept payments on our secure URL that looks to be part of their own store</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="subtitle" style="margin-top: 0px;">Who is a good candidate to use Secure Acceptance Checkout API?</h2>
+
+                    <div class="grouplc">
+                        <p>Businesses who:</p>
+                        <ul class="disc">
+                            <li>Want to customize and control their own order form, receipt and error pages</li>
+                            <li>Want to have access to and control of customer and order data</li>
+                            <li>Have a resource to do basic Perl, PHP, JSP, Ruby, or ASP.NET scripting</li>
+                            <li>Use a hosting provider that supports these languages and SSL security, or provide their own secure server for accepting orders</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="subtitle">Secure Acceptance Hosted Checkout is probably not right for you if...</h2>
+
+                    <div class="grouplc">
+                        <ul class="disc">
+                            <li>You already have your own PCI DSS compliant order form or don't want to outsource</li>
+                            <li>You need full customization control of your payment page</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="subtitle">Secure Acceptance Checkout API is probably not right for you if...</h2>
+
+                    <div class="grouplc">
+                        <ul class="disc">
+                            <li>You are using a Shopping Cart that already includes CyberSource payment</li>
+                            <li>You or your hosting provider don't provide a secure (SSL) protected order form</li>
+                            <li>The provider hosting your product Web pages doesn't support one of these scripting languages: Perl, PHP, JSP, Ruby, or ASP.NET</li>
+                            <li>You don't care about accessing customer data before processing</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="GroupLinkComponent section">
+
+                    <h2 class="subtitle">What are the main advantages of using the Secure Acceptance Hosted Checkout?</h2>
+
+                    <div class="grouplc">
+                        <ul class="disc">
+                            <li>Security Compliance—hosted services mean faster and easier PCI certification</li>
+                            <li>Reduced Risk—no need to handle or store sensitive account data</li>
+                            <li>Mobile Optimization – users on mobile devices are presented with the best checkout experience</li>
+                            <li>Global Ready – Language packs cover all major ecommerce markets and more</li>
+                            <li>Easy Trials and Testing – Changes to the checkout pages are easily configured</li>
+                            <li>Supports 1-click checkout – When integrated with CyberSource Tokenization, returning customers can be taken directly to the Review Order page. Tokenization allows you to access securely-stored account data for easy future payments.</li>
+                            <li>Low Maintenance—leave compliance and order page maintenance to us</li>
+                            <li>Speed—faster and easier than implementing your own checkout page, especially if you need to begin accepting online orders quickly</li>
+                            <li>Basic Customizing—customize basic visual elements and messaging for your customers</li>
+                            <li>Virtually Transparent—customers move seamlessly from your product pages to our hosted order form</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="subtitle">What are the main advantages of using Secure Acceptance Checkout API?</h2>
+
+                    <div class="grouplc">
+                        <ul class="disc">
+                            <li>Control and Customization—providing your own customized order page and receipt gives you more control over your customer's experience</li>
+                            <li>Data Access—you have full control to store or share order or customer data before sending it to CyberSource</li>
+                            <li>Security Control—you or your hosting provider control security with a secure server</li>
+                            <li>Minimal Changes to Environment—you only need to install minor scripting changes into your environment</li>
+                            <li>Easy Order Management—you can use the online Business Center to review and manage all of your orders from any computer with Internet access</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="GroupLinkComponent section">
+
+                    <h2 class="subtitle">What technical skills are required for Secure Acceptance Hosted Checkout?</h2>
+
+                    <div class="grouplc">
+                        <p>Secure Acceptance Hosted Checkout is very easy to implement and requires minimal scripting knowledge. We offer sample code in Perl, PHP, JSP, ASP.NET and Ruby. The three main actions are:</p>
+                        <ul class="disc">
+                            <li>Generate a security key within the CyberSource environment. Place it onto your own Web server to validate your identity to our systems</li>
+                            <li>Configure your order page by accepting defaults or customizing it</li>
+                            <li>Modify your Web script (copy and paste) so that an HTML "Buy" button appears on your checkout page</li>
+                        </ul>
+                        <p>You can implement the Secure Acceptance Hosted Checkout in two ways:</p>
+                        <ul class="disc">
+                            <li>Default: use the default receipt/decline pages and messages with limited customization options</li>
+                            <li>Customized: have full control to use your own receipt/decline pages and messages</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="subtitle">What technical skills are required for Secure Acceptance Checkout API?</h2>
+
+                    <div class="grouplc">
+                        <p>Secure Acceptance Checkout API requires moderate scripting skills in PHP, JSP, ASP.NET, Ruby, or Perl. The three main actions are:</p>
+                        <ul class="disc">
+                            <li>Automatically generate a security key script to validate your identity; install it into your Web script</li>
+                            <li>Modify your Web script code to pass order data to CyberSource</li>
+                            <li>You or your hosting provider maintain a secure SSL server for your order page</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="subtitle">Implementation Guides & Source Code</h2>
+                    <div>
+                        <ul class="disc">
+                            <li>Secure Acceptance Checkout API Integration Guide: <a href="http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Checkout_API/html/">HTML</a> | <a href="http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Checkout_API/Secure_Acceptance_Checkout_API.pdf">PDF</a></li>
+
+                            <li>Secure Acceptance Checkout API - Service Fees: <a href="https://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Checkout_API/Secure_Acceptance_Checkout_API_SF.pdf">PDF</a></li>
+
+                            <li>Secure Acceptance Hosted Checkout Integration Guide: <a href="http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Hosted_Checkout/html/">HTML</a> | <a href="http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Hosted_Checkout/Secure_Acceptance_Hosted_Checkout.pdf">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+                <!---->
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="ui inverted vertical footer segment">
+        <div class="ui container">
+            <div class="ui stackable inverted divided equal height stackable grid">
+                <div class="three wide column">
+                    <h4 class="ui inverted header">About</h4>
+                    <div class="ui inverted link list">
+                        <a href="../sitemap.html" class="item">Sitemap</a>
+                        <a href="https://www.linkedin.com/in/adam-thompson-a547468/" class="item" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">ANET Tests</h4>
+                    <div class="ui inverted link list">
+                        <a href="../ANET/anetvms.html" class="item">ANET VMS</a>
+                        <a href="../ANET/anetsimple.html" class="item">ANET Simple Checkout</a>
+                        <a href="../ANET/anetaccept.html" class="item">ANET Accept</a>
+                        <a href="../ANET/anetoauth.html" class="item">ANET OAuth</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">CYBS Tests</h4>
+                    <div class="ui inverted link list">
+                        <a href="../CYBS/anetcybsbridge.html" class="item">ANET Bridge to CYBS</a>
+                        <a href="../CYBS/cybsflexmicro.html" class="item">CYBS Flex Micro Form</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">CYBS API Doc Examples</h4>
+                    <div class="ui inverted link list">
+                        <a href="../CYBS/cybsapievolution.html" class="item">CYBS API Evolution</a>
+                        <a href="../CYBS/cybsscmpg.html" class="item">CYBS SCMP</a>
+                        <a href="../CYBS/cybssimpleorderg.html" class="item">CYBS Simple Order</a>
+                        <a href="../CYBS/cybssecureacceptg.html" class="item">CYBS Secure Acceptance</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Photo Galleries</h4>
+                    <div class="ui inverted link list">
+                        <a href="../Gallery/gallery1.html" class="item">Semantic 1</a>
+                        <a href="../Gallery/gallery2.html" class="item">Semantic 2</a>
+                        <a href="../Gallery/gallery3.html" class="item">Semantic 3</a>
+                        <a href="https://www.flickr.com/photos/adam-p-thompson/albums" class="item" target="_blank">Flickr</a>
+                        <a href="https://adthomps.myportfolio.com/projects" class="item" target="_blank">Adobe Portfolio</a>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Footer Header</h4>
+                    <p>Copyright © MyCompany. All rights reserved.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
