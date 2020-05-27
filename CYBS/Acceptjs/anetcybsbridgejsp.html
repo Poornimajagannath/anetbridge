@@ -3,32 +3,7 @@
 
 <head>
 
-    <!-- Standard Meta -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="../../images/icons/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../../images/icons/favicon.ico" type="image/x-icon">
-
-    <!-- Site Properties -->
-    <title>APT Portfolio Semantic/Fomantic UI - Acceptjs - Prod</title>
-
-    <!-- Resource Files - CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <!--<link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">-->
-    <link rel="stylesheet" type="text/css" href="../../stylescripts/acceptcust.css">
-
-    <!-- Resource Files - JS -->
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-    <!--<script src="../../semantic/dist/semantic.min.js"></script>-->
-    <script src="../../stylescripts/basic.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous"></script>
-
-    <script src="https://js.authorize.net/v1/Accept.js" charset="utf-8"></script>
+    
 
     <!-- JavaScript -->
     <script type="text/javascript">
@@ -44,8 +19,8 @@
             cardData.zip = document.getElementById('ZIP_CODE').value;
             cardData.cardCode = document.getElementById('CARD_CODE').value;
             secureData.cardData = cardData;
-            authData.clientKey = '4q78p92CdLnjVV3nK36DpjMH6MfN44tPxL6u2Xyj53sz4dADAH4kEV49CKaSt8k7';
-            authData.apiLoginID = '59DhDt5HRM';
+            authData.clientKey = 'ZxfsU3vyvfvTkABprq24wkTaykc4pLZrbcmqCiOHPzGiebQDUKU9ZUiJhU6YEDY=';
+            authData.apiLoginID = '5899186080890177037379';
             secureData.authData = authData;
             Accept.dispatchData(secureData, 'responseHandler');
         }
@@ -70,187 +45,6 @@
 
 </head>
 
-<body>
 
-    <!-- Following Menu -->
-    <div class="ui large top fixed hidden menu">
-        <div class="ui container">
-            <a href="../../index.html" class="item">Home</a>
-            <a href="../../anet.html" class="active item">ANET Examples</a>
-            <a href="../../cybs.html" class="item">CYBS Examples</a>
-            <a href="../../cybsdocs.html" class="item">CYBS API Docs</a>
-            <a href="../../gallery.html" class="item">Photo Galleries</a>
-            <div class="right menu">
-                <div class="item">
-                    <a href="https://developer.authorize.net" target="_blank" class="ui button">ANET Dev Center</a>
-                </div>
-                <div class="item">
-                    <a href="https://developer.cybersource.com" target="_blank" class="ui button">CYBS Dev Center</a>
-                    <!--<a class="ui primary button">CYBS Dev Center</a>-->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Sidebar Menu -->
-    <div class="ui vertical inverted sidebar menu">
-        <a href="../../index.html" class="item">Home</a>
-        <a href="../../anet.html" class="active item">ANET Examples</a>
-        <a href="../../cybs.html" class="item">CYBS Examples</a>
-        <a href="../../cybsdocs.html" class="item">CYBS API Docs</a>
-        <a href="../../gallery.html" class="item">Photo Galleries</a>
-        <a href="https://developer.authorize.net" target="_blank" class="item">ANET Dev Center</a>
-        <a href="https://developer.cybersource.com" target="_blank" class="item">CYBS Dev Center</a>
-    </div>
-
-    <!-- Page Contents -->
-    <div class="pusher">
-        <div class="ui inverted vertical masthead center aligned segment">
-
-            <div class="ui container">
-                <div class="ui large secondary inverted pointing menu">
-                    <a class="toc item">
-                        <i class="sidebar icon"></i>
-                    </a>
-                    <a href="../../index.html" class="item">Home</a>
-                    <a href="../../anet.html" class="active item">ANET Examples</a>
-                    <a href="../../cybs.html" class="item">CYBS Examples</a>
-                    <a href="../../cybsdocs.html" class="item">CYBS API Docs</a>
-                    <a href="../../gallery.html" class="item">Photo Galleries</a>
-                    <div class="right item">
-                        <a href="https://developer.authorize.net" target="_blank" class="ui inverted button">ANET Dev Center</a>
-                        <a href="https://developer.cybersource.com" target="_blank" class="ui inverted button">CYBS Dev Center</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ui text container">
-                <h1 class="ui inverted header">
-                    APT API Examples
-                </h1>
-                <h2>Authorize.Net API Accept tests. (Work In Progress)</h2>
-                <!--<div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>-->
-            </div>
-
-        </div>
-
-        <!----------------------------------->
-
-        <h4 class="ui horizontal header divider">
-            ANET Acceptjs Production Test
-        </h4>
-
-        <div class="ui vertical stripe segment">
-            <div class="ui text container">
-                <form class="ui form">
-                    <h4 class="ui dividing header">Billing Information</h4>
-                    <div class="fields">
-                        <div class="seven wide field">
-                            <label>Card Number</label>
-                            <input type="text" name="card[number]" maxlength="20" id="CARDNUMBER_ID" placeholder="Card #"
-                                   for="cardNumber">
-                        </div>
-                        <div class="three wide field">
-                            <label>CVC</label>
-                            <input type="text" name="card[cvc]" maxlength="3" id="CARD_CODE" placeholder="CVV" for="cardNumber">
-                        </div>
-                        <div class="six wide field">
-                            <label>Expiration</label>
-                            <div class="two fields">
-                                <div class="field">
-                                    <input type="text" name="card[expire-month]" maxlength="2" id="EXPIRY_MONTH_ID" placeholder="Month"
-                                           for="cardNumber">
-                                </div>
-                                <div class="field">
-                                    <input type="text" name="card[expire-year]" maxlength="4" id="EXPIRY_YEAR_ID" placeholder="Year"
-                                           for="cardNumber">
-                                </div>
-                                <div class="field">
-                                    <input type="text" name="card[zip]" maxlength="5" id="ZIP_CODE" placeholder="ZIP" for="cardNumber">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui button" tabindex="0" type="submit" id="pay" onclick="getSecureData()">Get Payment Nonce</div>
-                    <div class="form-horizontal formDiv1" role="form">
-                        <div class="form-group">
-                            <label class="control-label col-sm-3" for="blob">Payment Nonce:</label>
-                            <div class="col-sm-8">
-<textarea class="form-control" id="blob" rows="6"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-
-    <h4 class="ui horizontal header divider">
-    </h4>
-
-    <!-- Footer -->
-    <div class="ui inverted vertical footer segment">
-        <div class="ui container">
-            <div class="ui stackable inverted divided equal height stackable grid">
-                <div class="three wide column">
-                    <h4 class="ui inverted header">About</h4>
-                    <div class="ui inverted link list">
-                        <a href="../../sitemap.html" class="item">Sitemap</a>
-                        <a href="https://www.linkedin.com/in/adam-thompson-a547468/" class="item" target="_blank">LinkedIn</a>
-                    </div>
-                </div>
-
-                <div class="three wide column">
-                    <h4 class="ui inverted header">ANET Tests</h4>
-                    <div class="ui inverted link list">
-                        <a href="../../ANET/anetvms.html" class="item">ANET VMS</a>
-                        <a href="../../ANET/anetsimple.html" class="item">ANET Simple Checkout</a>
-                        <a href="../../ANET/anetaccept.html" class="item">ANET Accept</a>
-                        <a href="../../ANET/anetoauth.html" class="item">ANET OAuth</a>
-                    </div>
-                </div>
-
-                <div class="three wide column">
-                    <h4 class="ui inverted header">CYBS Tests</h4>
-                    <div class="ui inverted link list">
-                        <a href="../../CYBS/anetcybsbridge.html" class="item">ANET Bridge to CYBS</a>
-                        <a href="../../CYBS/cybsflexmicro.html" class="item">CYBS Flex Micro Form</a>
-                    </div>
-                </div>
-
-                <div class="three wide column">
-                    <h4 class="ui inverted header">CYBS API Doc Examples</h4>
-                    <div class="ui inverted link list">
-                        <a href="../../CYBS/cybsapievolution.html" class="item">CYBS API Evolution</a>
-                        <a href="../../CYBS/cybsscmpg.html" class="item">CYBS SCMP</a>
-                        <a href="../../CYBS/cybssimpleorderg.html" class="item">CYBS Simple Order</a>
-                        <a href="../../CYBS/cybssecureacceptg.html" class="item">CYBS Secure Acceptance</a>
-                    </div>
-                </div>
-
-                <div class="three wide column">
-                    <h4 class="ui inverted header">Photo Galleries</h4>
-                    <div class="ui inverted link list">
-                        <a href="../../Gallery/gallery1.html" class="item">Semantic 1</a>
-                        <a href="../../Gallery/gallery2.html" class="item">Semantic 2</a>
-                        <a href="../../Gallery/gallery3.html" class="item">Semantic 3</a>
-                        <a href="https://www.flickr.com/photos/adam-p-thompson/albums" class="item" target="_blank">Flickr</a>
-                        <a href="https://adthomps.myportfolio.com/projects" class="item" target="_blank">Adobe Portfolio</a>
-                    </div>
-                </div>
-
-                <div class="three wide column">
-                    <h4 class="ui inverted header">Footer Header</h4>
-                    <p>Copyright © MyCompany. All rights reserved.</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</body>
 
 </html>
