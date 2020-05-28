@@ -1,20 +1,39 @@
-﻿<!DOCTYPE html>
+﻿!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
-    
-    <title>Acceptjs - CAS</title>
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../../images/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../images/icons/favicon.ico" type="image/x-icon">
 
-    
+    <!-- Site Properties -->
+    <title>APT Portfolio Semantic/Fomantic UI - Acceptjs - Prod</title>
+
+    <!-- Resource Files - CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">-->
+    <link rel="stylesheet" type="text/css" href="../../stylescripts/acceptcust.css">
+
+    <!-- Resource Files - JS -->
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--<script src="../../semantic/dist/semantic.min.js"></script>-->
+    <script src="../../stylescripts/basic.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
 
     <script src="https://jstest.authorize.net/v1/Accept.js" charset="utf-8"></script>
 
     <!-- JavaScript -->
     <script type="text/javascript">
         var blob = "";
+
 
         function getSecureData() {
             var secureData = {},
@@ -26,6 +45,8 @@
             cardData.zip = document.getElementById('ZIP_CODE').value;
             cardData.cardCode = document.getElementById('CARD_CODE').value;
             secureData.cardData = cardData;
+            // authData.clientKey = 'ZxfsU3vyvfvTkABprq24wkTaykc4pLZrbcmqCiOHPzGiebQDUKU9ZUiJhU6YEDY=';
+            // authData.apiLoginID = '5899186080890177037379';
             authData.clientKey = '3DK+7d81AKT5SGUvxl4Tg281Ir6BkboQ7yAMGMRuNjfr0JCWLAqRPRZPD6aMrbg=';
             authData.apiLoginID = '5850869811250177102911';
             secureData.authData = authData;
@@ -52,7 +73,7 @@
 
 </head>
 
-<div class="ui vertical stripe segment">
+        <div class="ui vertical stripe segment">
             <div class="ui text container">
                 <form class="ui form">
                     <h4 class="ui dividing header">Billing Information</h4>
