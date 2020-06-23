@@ -60,6 +60,11 @@
 <h2 class="section-title text-dev-orange">
 Using The Payment Nonce On Your Server
 </h3>
+
+
+<button type="submit" id="createTransactionButton" class="btn btn-primary btn-lg btn-block" onclick="createTransactionFn()">Create Transaction</button>
+
+
 </div>
 <div>
 <ul class="itemizedList">
@@ -121,6 +126,26 @@ function useOpaqueData(responseData) {
 console.log(responseData.dataDescriptor);
 console.log(responseData.dataValue);
 $("#blob").val(responseData.dataValue);
+}
+
+function createTransactionFn() {
+	blobValue = document.getElementById('blob').value;
+	console.log(blobValue);
+
+	var mydata = JSON.parse('Sample.json');	
+	mydata['transactionRequest.payment.opaqueData.dataValue'] = blobValue;
+	console.log(mydata);
+
+
+	$.ajax({
+	    url: "https://api.authorize.net/xml/v1/request.api",
+	    data: mydata,
+	    success: function(){
+	      console.log('CreateTransaction Successful.')
+	    },
+	    dataType: 'json'
+	});
+
 }
 
 </script>

@@ -1,0 +1,20 @@
+{
+    "createTransactionRequest": {
+        "merchantAuthentication": {
+            "name": "5899186080890177037379",
+            "transactionKey": "v/1Nvf2p3qMoqrw="
+        },
+        "refId": "123456",
+        "transactionRequest": {
+            "transactionType": "authCaptureTransaction",
+            "amount": "1.00",
+            "payment": {
+                "opaqueData": {
+                    "dataDescriptor": "COMMON.ACCEPT.INAPP.PAYMENT",
+                    "dataValue": "1234567890ABCDEF1111AAAA2222BBBB3333CCCC4444DDDD5555EEEE6666FFFF7777888899990000"
+                }
+            }
+            
+        }
+    }
+}
