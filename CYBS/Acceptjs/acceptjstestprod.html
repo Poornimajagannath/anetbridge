@@ -62,33 +62,9 @@ Using The Payment Nonce On Your Server
 </h3>
 
 
-<button type="submit" id="createTransactionButton" class="btn btn-primary btn-lg btn-block" onclick="createTransactionFn()">Create Transaction</button>
+<button type="submit" id="createTransactionButton" class="btn btn-primary btn-lg btn-block" onclick="createTransactionFn()">AuthCapture Transaction</button>
 
 
-</div>
-<div>
-<ul class="itemizedList">
-<li>Simply replace the credit card element of a createTransaction call with the opaqueData element where the dataValue contains the Encrypted Blob above. <a href="http://developer.authorize.net/api/reference/#payment-transactions-charge-a-credit-card"> See CreateTransaction call in our API Reference.</a> For example: <para>
-<pre class="prettyprint lang-css linenums" id="successcode">
-&lt;createTransactionRequest xmlns=&quot;AnetApi/xml/v1/schema/AnetApiSchema.xsd&quot;&gt;
-&lt;merchantAuthentication&gt;
-&lt;name&gt;yours&lt;/name&gt;
-&lt;transactionKey&gt;yours&lt;/transactionKey&gt;
-&lt;/merchantAuthentication&gt;
-&lt;transactionRequest&gt;
-&lt;transactionType&gt;authCaptureTransaction&lt;/transactionType&gt;
-&lt;amount&gt;75.00&lt;/amount&gt;
-&lt;payment&gt;
-&lt;opaqueData&gt;
-&lt;dataDescriptor&gt;COMMON.ACCEPT.INAPP.PAYMENT&lt;/dataDescriptor&gt;
-&lt;dataValue&gt;nonce_here&lt;/dataValue &gt;
-&lt;/opaqueData&gt;
-&lt;/payment&gt;
-&lt;/transactionRequest&gt;
-&lt;/createTransactionRequest&gt;
-</pre></para>
-</li>
-</ul>
 </div>
 </div>
 <script type="text/javascript">
@@ -132,7 +108,7 @@ function createTransactionFn() {
 	blobValue = document.getElementById('blob').value;
 	console.log(blobValue);
 
-	var mydata = '<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><merchantAuthentication><name>yours</name><transactionKey>yours</transactionKey></merchantAuthentication><transactionRequest><transactionType>authCaptureTransaction</transactionType><amount>1.00</amount><payment><opaqueData><dataDescriptor>COMMON.ACCEPT.INAPP.PAYMENT</dataDescriptor><dataValue>nonce_here</dataValue ></opaqueData></payment></transactionRequest></createTransactionRequest>'
+	var mydata = '<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><merchantAuthentication><name>5899186080890177037379</name><transactionKey>v/1Nvf2p3qMoqrw=</transactionKey></merchantAuthentication><transactionRequest><transactionType>authCaptureTransaction</transactionType><amount>1.00</amount><payment><opaqueData><dataDescriptor>COMMON.ACCEPT.INAPP.PAYMENT</dataDescriptor><dataValue>nonce_here</dataValue ></opaqueData></payment></transactionRequest></createTransactionRequest>'
     	
 	mydata = mydata.replace('nonce_here', blobValue);
 	console.log(mydata);
