@@ -132,18 +132,19 @@ function createTransactionFn() {
 	blobValue = document.getElementById('blob').value;
 	console.log(blobValue);
 
-	var mydata = JSON.parse('Sample.json');	
-	mydata['transactionRequest.payment.opaqueData.dataValue'] = blobValue;
+	var mydata = '<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><merchantAuthentication><name>yours</name><transactionKey>yours</transactionKey></merchantAuthentication><transactionRequest><transactionType>authCaptureTransaction</transactionType><amount>1.00</amount><payment><opaqueData><dataDescriptor>COMMON.ACCEPT.INAPP.PAYMENT</dataDescriptor><dataValue>nonce_here</dataValue ></opaqueData></payment></transactionRequest></createTransactionRequest>'
+    	
+	mydata = mydata.replace('nonce_here', blobValue);
 	console.log(mydata);
 
 
 	$.ajax({
 	    url: "https://api.authorize.net/xml/v1/request.api",
 	    data: mydata,
-	    success: function(){
-	      console.log('CreateTransaction Successful.')
+	    success: function(resp){
+	      console.log(resp)
 	    },
-	    dataType: 'json'
+	    contentType: "text/xml"
 	});
 
 }
