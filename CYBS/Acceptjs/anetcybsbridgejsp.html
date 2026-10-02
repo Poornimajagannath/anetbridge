@@ -21,12 +21,12 @@
     <link rel="stylesheet" type="text/css" href="../../stylescripts/acceptcust.css">
 
     <!-- Resource Files - JS -->
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-    <!--<script src="../../semantic/dist/semantic.min.js"></script>-->
-    <script src="../../stylescripts/basic.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--<script src="../../semantic/dist/semantic.min.js"></script>-->
+    <script src="../../stylescripts/basic.js"></script>
 
     <script src="https://js.authorize.net/v1/Accept.js" charset="utf-8"></script>
 
@@ -79,13 +79,12 @@
                     <h4 class="ui dividing header">Billing Information</h4>
                     <div class="fields">
                         <div class="seven wide field">
-                            <label>Card Number</label>
-                            <input type="text" name="card[number]" maxlength="20" id="CARDNUMBER_ID" placeholder="Card #"
-                                   for="cardNumber">
+                            <label for="CARDNUMBER_ID">Card Number</label>
+                            <input type="text" name="card[number]" maxlength="20" id="CARDNUMBER_ID" placeholder="Card #">
                         </div>
                         <div class="three wide field">
-                            <label>CVC</label>
-                            <input type="text" name="card[cvc]" maxlength="3" id="CARD_CODE" placeholder="CVV" for="cardNumber">
+                            <label for="CARD_CODE">CVC</label>
+                            <input type="text" name="card[cvc]" maxlength="3" id="CARD_CODE" placeholder="CVV">
                         </div>
                         <div class="six wide field">
                             <label>Expiration</label>
