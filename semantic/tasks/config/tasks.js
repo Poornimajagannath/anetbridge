@@ -93,6 +93,11 @@ module.exports = {
       url        : release.url
     },
 
+    /* Less 4 defaults to parens-division. These themes were written for Less 3. */
+    less: {
+      math: 'always'
+    },
+
     plumber: {
       less: {
         errorHandler: function(error) {
