@@ -12,6 +12,8 @@
     src="https://js.authorize.net/v1/Accept.js"
     charset="utf-8">
 </script>
+    <script src="../../config.js"></script>
+    <script src="../../stylescripts/credentials.js"></script>
 </head>
 <body>
 <div class="container panel panel-default" style="margin-top:20px">
@@ -82,10 +84,10 @@ cardData.zip  = document.getElementById('ZIP_CODE').value;
 cardData.cardCode  = document.getElementById('CARD_CODE').value;
    
 secureData.cardData = cardData;
-//authData.clientKey = '5FcB6WrfHGS76gHW3v7btBCE3HuuBuke9Pj96Ztfn5R32G5ep42vne7MCWZtAucY';
-//authData.apiLoginID = '5KP3u95bQpv';
-authData.clientKey = 'ijmV2Y8kiDFkWtlPCP08hbI74dsb4xy1rCv54QwiPvOH2u5zzG+SfbYr/Z+lGeJ=';
-authData.apiLoginID = '5899186080890177037379';
+//authData.clientKey = demoCred('anet', 'sandbox', 'clientKey');
+//authData.apiLoginID = demoCred('anet', 'sandbox', 'apiLoginId');
+authData.clientKey = demoCred('cybs', 'production', 'acceptJsClientKey');
+authData.apiLoginID = demoCred('cybs', 'production', 'apiLoginId');
 secureData.authData = authData;
 Accept.dispatchData(secureData, 'responseHandler');
 }
@@ -110,9 +112,11 @@ function createTransactionFn() {
 	blobValue = document.getElementById('blob').value;
 	console.log(blobValue);
 
-	var mydata = '<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><merchantAuthentication><name>5899186080890177037379</name><transactionKey>v/1Nvf2p3qMoqrw=</transactionKey></merchantAuthentication><transactionRequest><transactionType>authCaptureTransaction</transactionType><amount>1.00</amount><payment><opaqueData><dataDescriptor>COMMON.ACCEPT.INAPP.PAYMENT</dataDescriptor><dataValue>nonce_here</dataValue ></opaqueData></payment></transactionRequest></createTransactionRequest>'
+	var mydata = '<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><merchantAuthentication><name>YOUR_API_LOGIN_ID</name><transactionKey>YOUR_TRANSACTION_KEY</transactionKey></merchantAuthentication><transactionRequest><transactionType>authCaptureTransaction</transactionType><amount>1.00</amount><payment><opaqueData><dataDescriptor>COMMON.ACCEPT.INAPP.PAYMENT</dataDescriptor><dataValue>nonce_here</dataValue ></opaqueData></payment></transactionRequest></createTransactionRequest>'
     	
 	mydata = mydata.replace('nonce_here', blobValue);
+	mydata = mydata.replace(/YOUR_API_LOGIN_ID/g, demoCred('cybs', 'production', 'apiLoginId'));
+	mydata = mydata.replace(/YOUR_TRANSACTION_KEY/g, demoCred('cybs', 'production', 'transactionKey'));
 	console.log(mydata);
 
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp --gulpfile semantic/gulpfile.js build",
-    "test": "node test/overrides.js"
+    "test": "node test/overrides.js && node test/credentials.js"
   },
   "author": "",
   "license": "ISC",

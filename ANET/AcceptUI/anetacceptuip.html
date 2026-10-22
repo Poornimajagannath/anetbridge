@@ -170,8 +170,8 @@
         function getSecureData(button) {
             var parameters = {};
             parameters.showBilling = true;
-            parameters.apiLoginID = '59DhDt5HRM';
-            parameters.clientKey = '4q78p92CdLnjVV3nK36DpjMH6MfN44tPxL6u2Xyj53sz4dADAH4kEV49CKaSt8k7';
+            parameters.apiLoginID = demoCred('anet', 'production', 'apiLoginId');
+            parameters.clientKey = demoCred('anet', 'production', 'clientKey');
             callbackFn = 'callbackMerchant';
 
             parameters.buttonText = 'Pay';
@@ -205,6 +205,8 @@
 
     </script>
 
+    <script src="../../config.js"></script>
+    <script src="../../stylescripts/credentials.js"></script>
 </head>
 
 <body data-gr-c-s-loaded="true">

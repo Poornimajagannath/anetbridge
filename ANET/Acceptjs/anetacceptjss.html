@@ -44,8 +44,8 @@
             cardData.zip = document.getElementById('ZIP_CODE').value;
             cardData.cardCode = document.getElementById('CARD_CODE').value;
             secureData.cardData = cardData;
-            authData.clientKey = '4abK6fG25BtW9QF3LZUN84FsmvQh47bpdm8FJ2yA28r9p5WPB34H8N6n7whjUsBu';
-            authData.apiLoginID = '62W3Efur';
+            authData.clientKey = demoCred('anet', 'acceptJsSandbox', 'clientKey');
+            authData.apiLoginID = demoCred('anet', 'acceptJsSandbox', 'apiLoginId');
             secureData.authData = authData;
             Accept.dispatchData(secureData, 'responseHandler');
         }
@@ -68,6 +68,8 @@
         }
     </script>
 
+    <script src="../../config.js"></script>
+    <script src="../../stylescripts/credentials.js"></script>
 </head>
 
 <body>

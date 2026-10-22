@@ -309,6 +309,8 @@
 
     </script>
 
+    <script src="../../config.js"></script>
+    <script src="../../stylescripts/credentials.js"></script>
 </head>
 
 <body>
@@ -409,8 +411,8 @@
                                     <textarea id="txtReqXml" name="txtReqXml" cols="80" rows="16" style="" placeholder="Code">
                                     &#x3C;getHostedPaymentPageRequest xmlns=&#x22;AnetApi/xml/v1/schema/AnetApiSchema.xsd&#x22;&#x3E;
                                     &#x3C;merchantAuthentication&#x3E;
-                                    &#x3C;name&#x3E;QOAA0OCC$aP94Nn8t528&#x3C;/name&#x3E;
-                                    &#x3C;transactionKey&#x3E;5zdZ9X9sra6e2G29&#x3C;/transactionKey&#x3E;
+                                    &#x3C;name&#x3E;YOUR_API_LOGIN_ID&#x3C;/name&#x3E;
+                                    &#x3C;transactionKey&#x3E;YOUR_TRANSACTION_KEY&#x3C;/transactionKey&#x3E;
                                     &#x3C;/merchantAuthentication&#x3E;
                                     &#x3C;transactionRequest&#x3E;
                                     &#x3C;transactionType&#x3E;authCaptureTransaction&#x3C;/transactionType&#x3E;
@@ -626,6 +628,15 @@
 
     </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var box = document.getElementById('txtReqXml');
+  if (!box || typeof demoCred !== 'function') return;
+  box.value = box.value
+    .replace(/YOUR_API_LOGIN_ID/g, demoCred('anet', 'hostedProduction', 'apiLoginId'))
+    .replace(/YOUR_TRANSACTION_KEY/g, demoCred('anet', 'hostedProduction', 'transactionKey'));
+});
+</script>
 </body>
 
 </html>

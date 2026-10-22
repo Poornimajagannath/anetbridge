@@ -1,8 +1,8 @@
 {
     "createTransactionRequest": {
         "merchantAuthentication": {
-            "name": "5899186080890177037379",
-            "transactionKey": "v/1Nvf2p3qMoqrw="
+            "name": "YOUR_API_LOGIN_ID",
+            "transactionKey": "YOUR_TRANSACTION_KEY"
         },
         "refId": "123456",
         "transactionRequest": {
