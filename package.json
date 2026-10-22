@@ -4,11 +4,31 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp --gulpfile semantic/gulpfile.js build",
+    "test": "node test/overrides.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fomantic-ui": "^2.8.4"
+    "better-console": "npm:@fomantic/better-console@1.0.2",
+    "braces": "file:vendor/braces",
+    "fomantic-ui": "2.9.4",
+    "gulp-concat-css": "npm:@fomantic/gulp-concat-css@3.3.0",
+    "gulp-dedupe": "npm:@fomantic/gulp-dedupe@0.0.3",
+    "gulp-header": "npm:@fomantic/gulp-header@2.2.0",
+    "gulp-plumber": "npm:@fomantic/gulp-plumber@1.2.2",
+    "sprintf-js": "file:vendor/sprintf-js"
+  },
+  "devDependencies": {
+    "gulp": "^5.0.1"
+  },
+  "overrides": {
+    "@adobe/css-tools": "4.5.0",
+    "@octokit/plugin-paginate-rest": "9.2.2",
+    "@octokit/request": "8.4.1",
+    "@octokit/request-error": "5.1.1",
+    "braces": "$braces",
+    "sprintf-js": "$sprintf-js",
+    "undici": "6.29.1"
   }
 }
